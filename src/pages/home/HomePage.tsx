@@ -2,12 +2,10 @@ import { SiteLayout } from '../../components/layout/SiteLayout'
 import { homePalette } from '../../theme/palettes/home'
 import { demosByCategory, getDemoPath } from '../../config/landings'
 import { Link } from 'react-router-dom'
-import { useUiStore } from '../../stores/useUiStore'
 import { useState, useEffect } from 'react'
 import { ReliableImage } from '../../components/media/ReliableImage'
 
 export function HomePage() {
-  const theme = useUiStore((state) => state.theme);
   const [currentIndices, setCurrentIndices] = useState<Record<string, number>>({
     manufacturing: 0,
     services: 0,
