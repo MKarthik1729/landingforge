@@ -54,6 +54,19 @@ img {
   background: rgba(196, 104, 58, 0.24);
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.demo-card {
+  animation: fadeIn 1s ease-in-out;
+}
+
 @keyframes drift {
   0%,
   100% {

@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { categoryMeta } from '../../config/landings/categories'
 import type { CategoryKey, NavbarMode } from '../../config/landings/types'
 import { siteConfig } from '../../config/site'
 import { useUiStore } from '../../stores/useUiStore'
+import { cn } from '../../lib/cn'
+import { demosByCategory, getDemoPath } from '../../config/landings'
 
 type NavbarProps = {
   navbarMode: NavbarMode
@@ -34,34 +36,60 @@ export function Navbar({
   title,
 }: NavbarProps) {
   const { pathname } = useLocation()
-  const [scrolled, setScrolled] = useState(false)
   const mobileNavOpen = useUiStore((state) => state.mobileNavOpen)
   const setMobileNavOpen = useUiStore((state) => state.setMobileNavOpen)
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 28)
-    }
-
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const [isHovered, setIsHovered] = useState(true)
+  const [isVisible, setIsVisible] = useState(true)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const timeoutRef = useRef<number | null>(null)
 
   useEffect(() => {
     setMobileNavOpen(false)
   }, [pathname, setMobileNavOpen])
 
-  const transparentAtTop = navbarMode !== 'solid' && !scrolled && !mobileNavOpen
+  useEffect(() => {
+    if (isHovered) {
+      setIsVisible(true)
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    } else {
+      timeoutRef.current = window.setTimeout(() => {
+        setIsVisible(false)
+      }, 2500)
+    }
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [isHovered])
+
+  const transparentAtTop = navbarMode !== 'solid' && !mobileNavOpen
+
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(true)
+  }
 
   return (
-    <header className="pointer-events-none sticky top-0 z-50 px-4 pt-4 sm:px-6">
+    <header
+      className={cn(
+        'absolute top-0 z-50 w-full px-4 pt-4 sm:px-6 transition-opacity duration-300',
+        isVisible ? 'opacity-100' : 'opacity-0',
+      )}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div
         className="pointer-events-auto mx-auto max-w-7xl rounded-full border transition-all duration-300"
         style={{
           backgroundColor: transparentAtTop
-            ? 'transparent'
+            ? 'rgba(0, 0, 0, 0.2)'
             : 'var(--page-navbar-bg)',
           borderColor: transparentAtTop
             ? 'transparent'
@@ -97,6 +125,43 @@ export function Navbar({
               const isActive =
                 (item.match === 'home' && pathname === '/') ||
                 (item.match !== 'home' && item.match === currentCategory)
+
+              const isCategory = item.match in demosByCategory;
+
+              if (isCategory) {
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown(item.match)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <a
+                      href={item.href}
+                      className="rounded-full px-4 py-2 text-sm font-medium transition-transform duration-200 hover:-translate-y-0.5"
+                      style={{
+                        backgroundColor: isActive ? 'var(--page-glow)' : 'transparent',
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                    {openDropdown === item.match && (
+                      <div className="absolute top-full mt-2 w-48 rounded-md shadow-lg" style={{ backgroundColor: 'var(--page-surface)'}}>
+                        {demosByCategory[item.match as keyof typeof demosByCategory].map((demo) => (
+                          <Link
+                            key={demo.id}
+                            to={getDemoPath(demo)}
+                            className="block px-4 py-2 text-sm"
+                            style={{ color: 'var(--page-text)' }}
+                          >
+                            {demo.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )
+              }
 
               return (
                 <a
@@ -158,17 +223,32 @@ export function Navbar({
           >
             <div className="grid gap-2">
               {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="rounded-2xl border px-4 py-3 text-sm font-medium"
-                  style={{
-                    borderColor: 'var(--page-border)',
-                    backgroundColor: 'var(--page-surface)',
-                  }}
-                >
-                  {item.label}
-                </a>
+                 <div key={item.label}>
+                 <a
+                   href={item.href}
+                   className="rounded-2xl border px-4 py-3 text-sm font-medium"
+                   style={{
+                     borderColor: 'var(--page-border)',
+                     backgroundColor: 'var(--page-surface)',
+                   }}
+                 >
+                   {item.label}
+                 </a>
+                 {item.match in demosByCategory && (
+                   <div className="mt-2 w-full rounded-md shadow-lg" style={{ backgroundColor: 'var(--page-surface)' }}>
+                     {demosByCategory[item.match as keyof typeof demosByCategory].map((demo) => (
+                       <Link
+                         key={demo.id}
+                         to={getDemoPath(demo)}
+                         className="block px-4 py-2 text-sm"
+                         style={{ color: 'var(--page-text)' }}
+                       >
+                         {demo.title}
+                       </Link>
+                     ))}
+                   </div>
+                 )}
+               </div>
               ))}
             </div>
           </div>
