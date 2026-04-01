@@ -78,7 +78,7 @@ export const studyCardEnrollmentDemo = defineDemo({
   },
   contactCta: {
     label: 'Build an enrollment-first page',
-    href: 'mailto:hello@landingforge.studio?subject=Enrollment%20Study%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Enrollment%20Study%20Demo',
     note: 'Best when the key challenge is helping learners choose the right offer and commit quickly.',
   },
 })

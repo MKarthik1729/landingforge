@@ -78,7 +78,7 @@ export const ecommerceCardCollectionDemo = defineDemo({
   },
   contactCta: {
     label: 'Build a collection-first ecommerce page',
-    href: 'mailto:hello@landingforge.studio?subject=Collection%20Ecommerce%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Collection%20Ecommerce%20Demo',
     note: 'Best for brands that want category and collection storytelling without losing purchase clarity.',
   },
 })

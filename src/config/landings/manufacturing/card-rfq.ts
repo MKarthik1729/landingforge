@@ -78,7 +78,7 @@ export const manufacturingCardRfqDemo = defineDemo({
   },
   contactCta: {
     label: 'Request an RFQ-style page',
-    href: 'mailto:hello@landingforge.studio?subject=RFQ%20Landing%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=RFQ%20Landing%20Demo',
     note: 'Use this structure when the primary conversion is a quote request backed by hard technical credibility.',
   },
 })

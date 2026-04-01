@@ -119,8 +119,8 @@ export function HomePage() {
         <section id="demos" className="py-20" style={{ backgroundColor: 'var(--page-bg-alt)'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold">Our Work</h2>
-              <p className="mt-2 text-lg" style={{ color: 'var(--page-text-muted)' }}>A selection of our finest landing pages.</p>
+              <h2 className="text-4xl font-bold">Demo sites</h2>
+              <p className="mt-2 text-lg" style={{ color: 'var(--page-text-muted)' }}>Explore Landing Pages We Can Create for You</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {Object.entries(demosByCategory).map(([category, demos]) => {

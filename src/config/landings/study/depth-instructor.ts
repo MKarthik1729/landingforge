@@ -78,7 +78,7 @@ export const studyDepthInstructorDemo = defineDemo({
   },
   contactCta: {
     label: 'Design an instructor-led page',
-    href: 'mailto:hello@landingforge.studio?subject=Instructor%20Landing%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Instructor%20Landing%20Demo',
     note: 'Use this when educator credibility and trust carry most of the conversion weight.',
   },
 })

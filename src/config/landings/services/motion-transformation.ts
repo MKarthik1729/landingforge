@@ -77,7 +77,7 @@ export const servicesMotionTransformationDemo = defineDemo({
   },
   contactCta: {
     label: 'Create a transformation-led page',
-    href: 'mailto:hello@landingforge.studio?subject=Transformation%20Service%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Transformation%20Service%20Demo',
     note: 'Best for consulting, coaching, wellness, or service brands that sell a meaningful before-and-after outcome.',
   },
 })

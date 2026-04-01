@@ -78,7 +78,7 @@ export const ecommerceMotionLaunchDemo = defineDemo({
   },
   contactCta: {
     label: 'Create a launch campaign page',
-    href: 'mailto:hello@landingforge.studio?subject=Launch%20Campaign%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Launch%20Campaign%20Demo',
     note: 'Ideal for drops, timed campaigns, and product moments that rely on anticipation and energy.',
   },
 })

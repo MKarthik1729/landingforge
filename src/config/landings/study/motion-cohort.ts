@@ -78,7 +78,7 @@ export const studyMotionCohortDemo = defineDemo({
   },
   contactCta: {
     label: 'Create a cohort-journey page',
-    href: 'mailto:hello@landingforge.studio?subject=Cohort%20Journey%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Cohort%20Journey%20Demo',
     note: 'Perfect for programs that sell momentum, mentorship, and guided progress.',
   },
 })

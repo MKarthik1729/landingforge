@@ -78,7 +78,7 @@ export const studyImmersiveAdmissionsDemo = defineDemo({
   },
   contactCta: {
     label: 'Create an interactive admissions page',
-    href: 'mailto:hello@landingforge.studio?subject=Admissions%20Landing%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Admissions%20Landing%20Demo',
     note: 'Best when atmosphere, belonging, and the educational environment help drive applications.',
   },
 })

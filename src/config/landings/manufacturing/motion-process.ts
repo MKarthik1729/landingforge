@@ -78,7 +78,7 @@ export const manufacturingMotionProcessDemo = defineDemo({
   },
   contactCta: {
     label: 'Build a motion-led process page',
-    href: 'mailto:hello@landingforge.studio?subject=Motion%20Manufacturing%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Motion%20Manufacturing%20Demo',
     note: 'Best fit when the sale depends on showing process sophistication and execution discipline.',
   },
 })

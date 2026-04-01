@@ -77,7 +77,7 @@ export const servicesCardBookingDemo = defineDemo({
   },
   contactCta: {
     label: 'Request a booking-first service page',
-    href: 'mailto:hello@landingforge.studio?subject=Service%20Booking%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Service%20Booking%20Demo',
     note: 'Great for local or regional services that convert best when choices are simple and visible.',
   },
 })

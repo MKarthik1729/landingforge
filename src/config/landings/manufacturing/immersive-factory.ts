@@ -78,7 +78,7 @@ export const manufacturingImmersiveFactoryDemo = defineDemo({
   },
   contactCta: {
     label: 'Design an immersive plant page',
-    href: 'mailto:hello@landingforge.studio?subject=Immersive%20Plant%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Immersive%20Plant%20Demo',
     note: 'Best when the visual impression of the plant itself helps close trust and differentiation.',
   },
 })

@@ -78,7 +78,7 @@ export const servicesImmersiveBrandDemo = defineDemo({
   },
   contactCta: {
     label: 'Build a comfort-led furniture site',
-    href: 'mailto:hello@landingforge.studio?subject=Furniture%20Landing%20Page',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Furniture%20Landing%20Page',
     note: 'Ideal for woodwork and furniture brands that need product visuals, atmosphere, and stronger page storytelling.',
   },
 })

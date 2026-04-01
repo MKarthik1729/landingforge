@@ -77,7 +77,7 @@ export const servicesDepthConsultingDemo = defineDemo({
   },
   contactCta: {
     label: 'Design a premium consulting page',
-    href: 'mailto:hello@landingforge.studio?subject=Consulting%20Landing%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Consulting%20Landing%20Demo',
     note: 'Ideal when the offer is strategic, expensive, and needs stronger authority than a standard service page.',
   },
 })

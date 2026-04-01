@@ -78,7 +78,7 @@ export const manufacturingDepthCertificationsDemo = defineDemo({
   },
   contactCta: {
     label: 'Create a compliance-led page',
-    href: 'mailto:hello@landingforge.studio?subject=Compliance%20Landing%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Compliance%20Landing%20Demo',
     note: 'Use this when trust, standards, and enterprise readiness are the primary conversion drivers.',
   },
 })

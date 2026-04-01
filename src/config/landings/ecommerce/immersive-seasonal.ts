@@ -78,7 +78,7 @@ export const ecommerceImmersiveSeasonalDemo = defineDemo({
   },
   contactCta: {
     label: 'Build an interactive campaign page',
-    href: 'mailto:hello@landingforge.studio?subject=Immersive%20Campaign%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Immersive%20Campaign%20Demo',
     note: 'Perfect for seasonal edits, hero campaigns, and lifestyle-led merchandising pushes.',
   },
 })

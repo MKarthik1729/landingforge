@@ -78,7 +78,7 @@ export const ecommerceDepthSignatureDemo = defineDemo({
   },
   contactCta: {
     label: 'Design a flagship product page',
-    href: 'mailto:hello@landingforge.studio?subject=Flagship%20Product%20Demo',
+    href: 'mailto:mkarthik1729@gmail.com?subject=Flagship%20Product%20Demo',
     note: 'Best when one premium product deserves a richer narrative and more elevated purchase context.',
   },
 })
