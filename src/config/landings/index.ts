@@ -16,9 +16,9 @@ import { studyImmersiveAdmissionsDemo } from './study/immersive-admissions'
 import { studyMotionCohortDemo } from './study/motion-cohort'
 
 export const allDemos = [
-  // manufacturingCardRfqDemo,
-  // manufacturingMotionProcessDemo,
-  // manufacturingDepthCertificationsDemo,
+  manufacturingCardRfqDemo,
+  manufacturingMotionProcessDemo,
+  manufacturingDepthCertificationsDemo,
   manufacturingImmersiveFactoryDemo,  //good
   // servicesCardBookingDemo,
   servicesMotionTransformationDemo,  // okok

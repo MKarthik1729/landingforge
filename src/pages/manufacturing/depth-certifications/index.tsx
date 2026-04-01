@@ -1,132 +1,437 @@
+import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import { ManufacturingDepthCertificationsNavbar } from './Navbar'
 import { SiteLayout } from '../../../components/layout/SiteLayout'
 import { manufacturingDepthCertificationsPalette } from '../../../theme/palettes/manufacturing/depth-certifications'
 import { manufacturingDepthCertificationsDemo } from '../../../config/landings/manufacturing/depth-certifications'
+import { useUiStore } from '../../../stores/useUiStore'
+
+const textVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+}
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
+}
+
+const popVariants: Variants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: 'spring', stiffness: 300, damping: 20 },
+  },
+}
 
 export function ManufacturingDepthCertificationsPage() {
+  const theme = useUiStore((state) => state.theme)
+  const isDark = theme === 'dark'
+
   return (
-  <SiteLayout
-    palette={manufacturingDepthCertificationsPalette}
-    navbarMode={manufacturingDepthCertificationsDemo.navbarMode}
-    currentCategory={manufacturingDepthCertificationsDemo.category}
-    title={manufacturingDepthCertificationsDemo.title}
-    customNavbar={<ManufacturingDepthCertificationsNavbar />}
-  >
+    <SiteLayout
+      palette={manufacturingDepthCertificationsPalette}
+      navbarMode={manufacturingDepthCertificationsDemo.navbarMode}
+      currentCategory={manufacturingDepthCertificationsDemo.category}
+      title={manufacturingDepthCertificationsDemo.title}
+      customNavbar={<ManufacturingDepthCertificationsNavbar />}
+    >
       <main>
-        {/* Hero Section */}
-        <section className="bg-blue-900 text-white py-20 text-center">
-          <div className="container mx-auto">
-            <h1 className="text-4xl font-bold mb-4">
-              Achieve Manufacturing Excellence with Our Certifications
-            </h1>
-            <p className="text-lg mb-8">
-              Demonstrate your commitment to quality and compliance.
-            </p>
-            <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded">
-              Get Certified
-            </button>
+        {/* Hero Section - Playful Yet Professional */}
+        <motion.section
+          className="relative py-24 overflow-hidden"
+          style={{
+            background: isDark
+              ? 'linear-gradient(135deg, #2a1708 0%, #0d2116 100%)'
+              : 'linear-gradient(135deg, #fef9e7 0%, #f0ebe1 100%)',
+          }}
+        >
+          <div className="absolute inset-0 opacity-10">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+              className="absolute top-10 right-10 w-32 h-32 rounded-full"
+              style={{
+                background: isDark
+                  ? 'radial-gradient(circle, #15803d, transparent)'
+                  : 'radial-gradient(circle, #d97706, transparent)',
+              }}
+            />
           </div>
-        </section>
 
-        {/* Importance of Certifications Section */}
-        <section className="py-20">
-          <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold mb-8">
-              Why Certifications Matter
-            </h2>
-            <p className="text-lg leading-relaxed">
-              In today's competitive market, manufacturing certifications are
-              essential to build trust with your customers, ensure product
-              quality, and comply with industry regulations. They open doors
-              to new markets and partnerships.
-            </p>
-          </div>
-        </section>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={containerVariants}
+              >
+                <motion.div variants={popVariants}>
+                  <span
+                    className="inline-block text-sm font-bold mb-4 px-4 py-2 rounded-full"
+                    style={{
+                      background: isDark ? 'rgba(34, 197, 94, 0.2)' : 'rgba(217, 119, 6, 0.15)',
+                      color: isDark ? '#22c55e' : '#d97706',
+                    }}
+                  >
+                    🎨 World-Class Toy Manufacturing
+                  </span>
+                </motion.div>
 
-        {/* Certifications Offered Section */}
-        <section className="py-20 bg-gray-100">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-12">
-              Certifications We Offer
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-white mx-auto rounded-full mb-4 flex items-center justify-center font-bold">
-                  ISO 9001
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="w-24 h-24 bg-white mx-auto rounded-full mb-4 flex items-center justify-center font-bold">
-                  AS9100
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="w-24 h-24 bg-white mx-auto rounded-full mb-4 flex items-center justify-center font-bold">
-                  ISO 13485
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="w-24 h-24 bg-white mx-auto rounded-full mb-4 flex items-center justify-center font-bold">
-                  IATF 16949
-                </div>
-              </div>
+                <motion.h1
+                  variants={textVariants}
+                  className="text-5xl md:text-6xl font-bold mb-6"
+                  style={{ color: isDark ? '#edf8f0' : '#0d2116' }}
+                >
+                  PlaySafe Toys
+                </motion.h1>
+
+                <motion.p
+                  variants={textVariants}
+                  className="text-xl mb-6"
+                  style={{ color: isDark ? '#a7c7b1' : '#5f7269' }}
+                >
+                  Certified excellence in toy manufacturing. Every product tested to the highest
+                  safety standards and designed to spark joy and imagination.
+                </motion.p>
+
+                <motion.div
+                  variants={textVariants}
+                  className="space-y-3 mb-8"
+                >
+                  {[
+                    'ASTM F963 Certified',
+                    'ISO 8124 Compliant',
+                    'CE Marked Safety',
+                  ].map((cert, i) => (
+                    <motion.div
+                      key={i}
+                      variants={popVariants}
+                      className="flex items-center gap-3"
+                    >
+                      <span className="text-xl">✓</span>
+                      <span style={{ color: isDark ? '#edf8f0' : '#0d2116' }}>
+                        {cert}
+                      </span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+
+                <motion.button
+                  variants={textVariants}
+                  className="px-8 py-4 rounded-lg font-bold transition-all hover:scale-105"
+                  style={{
+                    background: isDark ? '#22c55e' : '#15803d',
+                    color: isDark ? '#08140d' : '#ffffff',
+                  }}
+                >
+                  Request Product Catalog
+                </motion.button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <img
+                  src="/images/manufacturing/depth-certifications/hero.jpg"
+                  alt="PlaySafe Manufacturing Facility"
+                  className="rounded-2xl shadow-2xl w-full"
+                />
+              </motion.div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* Our Process Section */}
-        <section className="py-20">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-12">Our Process</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-              <div>
-                <h3 className="text-xl font-bold mb-2">1. Application</h3>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">2. Audit</h3>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">3. Certification</h3>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">4. Surveillance</h3>
-              </div>
+        {/* Certification Stack Section */}
+        <motion.section className="py-24">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={containerVariants}
+              className="text-center mb-16"
+            >
+              <motion.h2
+                variants={textVariants}
+                className="text-4xl md:text-5xl font-bold mb-4"
+                style={{ color: isDark ? '#edf8f0' : '#0d2116' }}
+              >
+                Our Quality & Safety Stack
+              </motion.h2>
+              <motion.p
+                variants={textVariants}
+                className="text-xl max-w-2xl mx-auto"
+                style={{ color: isDark ? '#a7c7b1' : '#5f7269' }}
+              >
+                Rigorous certifications ensuring every toy meets global safety standards
+              </motion.p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={containerVariants}
+              >
+                {[
+                  { emoji: '🛡️', title: 'Safety Testing', desc: 'Toxicity & Material Analysis' },
+                  { emoji: '⭐', title: 'Quality Control', desc: '100% Batch Inspection' },
+                  { emoji: '⚡', title: 'Performance', desc: 'Durability & Wear Testing' },
+                  { emoji: '👶', title: 'Child Safety', desc: 'Age-Appropriate Design' },
+                ].map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={popVariants}
+                    className="p-6 rounded-xl flex items-start gap-4"
+                    style={{
+                      background: isDark
+                        ? 'rgba(34, 197, 94, 0.1)'
+                        : 'rgba(217, 119, 6, 0.08)',
+                      border: isDark
+                        ? '1px solid rgba(34, 197, 94, 0.2)'
+                        : '1px solid rgba(217, 119, 6, 0.2)',
+                    }}
+                  >
+                    <div className="text-3xl flex-shrink-0">{item.emoji}</div>
+                    <div>
+                      <h3
+                        className="font-bold text-lg mb-1"
+                        style={{ color: isDark ? '#edf8f0' : '#0d2116' }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p style={{ color: isDark ? '#a7c7b1' : '#5f7269' }}>
+                        {item.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <img
+                  src="/images/manufacturing/depth-certifications/process-2.jpg"
+                  alt="Quality Testing Lab"
+                  className="rounded-2xl shadow-2xl w-full h-full object-cover"
+                />
+              </motion.div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* Testimonials Section */}
-        <section className="py-20 bg-gray-100">
-          <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold mb-12">
-              What Our Clients Say
-            </h2>
-            <div className="space-y-8">
-              <div className="testimonial">
-                <p className="text-lg italic">
-                  "The certification process was smooth and professional. It
-                  has significantly improved our business."
-                </p>
-                <p className="mt-4 font-bold">- CEO, ABC Manufacturing</p>
-              </div>
+        {/* Product Lines Showcase */}
+        <motion.section
+          className="py-24"
+          style={{
+            background: isDark ? 'rgba(34, 197, 94, 0.05)' : 'rgba(217, 119, 6, 0.05)',
+          }}
+        >
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={containerVariants}
+              className="text-center mb-16"
+            >
+              <motion.h2
+                variants={textVariants}
+                className="text-4xl font-bold mb-4"
+                style={{ color: isDark ? '#edf8f0' : '#0d2116' }}
+              >
+                PlaySafe Collections
+              </motion.h2>
+              <motion.p
+                variants={textVariants}
+                style={{ color: isDark ? '#a7c7b1' : '#5f7269' }}
+              >
+                Handcrafted toys for every age group
+              </motion.p>
+            </motion.div>
+
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              {[
+                {
+                  name: 'Infant Wonder',
+                  image: '/images/manufacturing/depth-certifications/hero.jpg',
+                  desc: '0-12 months: Sensory development toys',
+                },
+                {
+                  name: 'Toddler Builders',
+                  image: '/images/manufacturing/depth-certifications/process-2.jpg',
+                  desc: '1-3 years: Building & learning sets',
+                },
+                {
+                  name: 'Adventure Plus',
+                  image: '/images/manufacturing/depth-certifications/process-1.jpg',
+                  desc: '3+ years: Educational & action toys',
+                },
+              ].map((collection, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={popVariants}
+                  className="group cursor-pointer"
+                >
+                  <div className="relative overflow-hidden rounded-2xl mb-4 h-64">
+                    <img
+                      src={collection.image}
+                      alt={collection.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <h3
+                    className="text-2xl font-bold mb-2"
+                    style={{ color: isDark ? '#edf8f0' : '#0d2116' }}
+                  >
+                    {collection.name}
+                  </h3>
+                  <p style={{ color: isDark ? '#a7c7b1' : '#5f7269' }}>
+                    {collection.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* Sustainability Section */}
+        <motion.section className="py-24">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <img
+                  src="/images/manufacturing/depth-certifications/hero.jpg"
+                  alt="Sustainable Materials"
+                  className="rounded-2xl shadow-2xl w-full"
+                />
+              </motion.div>
+
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={containerVariants}
+              >
+                <motion.h2
+                  variants={textVariants}
+                  className="text-4xl font-bold mb-6"
+                  style={{ color: isDark ? '#edf8f0' : '#0d2116' }}
+                >
+                  Eco-Conscious Manufacturing
+                </motion.h2>
+
+                <motion.p
+                  variants={textVariants}
+                  className="text-lg mb-6"
+                  style={{ color: isDark ? '#a7c7b1' : '#5f7269' }}
+                >
+                  We're committed to sustainable toy production that protects both children
+                  and our planet.
+                </motion.p>
+
+                {[
+                  'Non-toxic, biodegradable materials',
+                  'FSC-certified sustainable wood',
+                  'Water-based, lead-free paints',
+                  'Zero-waste manufacturing process',
+                ].map((feature, i) => (
+                  <motion.div
+                    key={i}
+                    variants={popVariants}
+                    className="flex items-center gap-3 mb-4"
+                  >
+                    <span className="text-2xl">♻️</span>
+                    <span
+                      style={{
+                        color: isDark ? '#edf8f0' : '#0d2116',
+                      }}
+                    >
+                      {feature}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* Contact Section */}
-        <section className="py-20">
-          <div className="container mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold mb-8">
-              Ready to Get Certified?
-            </h2>
-            <p className="text-lg mb-8">
-              Contact us today to start your certification journey.
-            </p>
-            <button className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded">
-              Contact Us
-            </button>
-          </div>
-        </section>
+        {/* CTA Section */}
+        <motion.section
+          className="py-24 text-center"
+          style={{
+            background: isDark
+              ? 'linear-gradient(135deg, #1a2e1f 0%, #0d2116 100%)'
+              : 'linear-gradient(135deg, #fef9e7 0%, #e4efe8 100%)',
+          }}
+        >
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+            className="container mx-auto px-4"
+          >
+            <motion.h2
+              variants={textVariants}
+              className="text-4xl md:text-5xl font-bold mb-6"
+              style={{ color: isDark ? '#edf8f0' : '#0d2116' }}
+            >
+              Bring Safe Joy to Children Worldwide
+            </motion.h2>
+            <motion.p
+              variants={textVariants}
+              className="text-xl mb-8 max-w-2xl mx-auto"
+              style={{ color: isDark ? '#a7c7b1' : '#5f7269' }}
+            >
+              Partner with PlaySafe for certified, safe, and delightful toys. Request our full
+              certification documentation and wholesale rates.
+            </motion.p>
+            <motion.div variants={textVariants} className="flex gap-4 justify-center flex-wrap">
+              <button
+                className="px-10 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105"
+                style={{
+                  background: isDark ? '#22c55e' : '#15803d',
+                  color: isDark ? '#08140d' : '#ffffff',
+                }}
+              >
+                Download Certifications
+              </button>
+              <button
+                className="px-10 py-4 rounded-lg font-bold text-lg border-2 transition-all hover:scale-105"
+                style={{
+                  borderColor: isDark ? '#22c55e' : '#15803d',
+                  color: isDark ? '#22c55e' : '#15803d',
+                }}
+              >
+                Schedule Quality Audit
+              </button>
+            </motion.div>
+          </motion.div>
+        </motion.section>
       </main>
     </SiteLayout>
   )
