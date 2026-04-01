@@ -66,7 +66,7 @@ export function StudyCardEnrollmentPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
               <div className="text-center">
                 <img
-                  src="https://picsum.photos/200/200?random=29"
+                  src="/images/study/card-enrollment/instructor-1.jpg"
                   alt="Instructor 1"
                   className="rounded-full mx-auto mb-4"
                 />
@@ -75,7 +75,7 @@ export function StudyCardEnrollmentPage() {
               </div>
               <div className="text-center">
                 <img
-                  src="https://picsum.photos/200/200?random=30"
+                  src="/images/study/card-enrollment/instructor-2.jpg"
                   alt="Instructor 2"
                   className="rounded-full mx-auto mb-4"
                 />

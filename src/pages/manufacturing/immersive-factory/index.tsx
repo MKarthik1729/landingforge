@@ -1,6 +1,38 @@
+import { useState, useEffect } from 'react'
 import { ManufacturingImmersiveFactoryNavbar } from './Navbar'
 
 export function ManufacturingImmersiveFactoryPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/manufacturing/immersive-factory/hero.jpg',
+      '/images/manufacturing/immersive-factory/factory-area-1.jpg',
+      '/images/manufacturing/immersive-factory/factory-area-2.jpg',
+      '/images/manufacturing/immersive-factory/factory-area-3.jpg',
+      '/images/manufacturing/immersive-factory/factory-workers.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-gray-900 text-white">
       <ManufacturingImmersiveFactoryNavbar />
@@ -9,7 +41,7 @@ export function ManufacturingImmersiveFactoryPage() {
         <section
           className="h-screen bg-cover bg-center flex items-center"
           style={{
-            backgroundImage: 'url(https://picsum.photos/1920/1080?random=17)',
+            backgroundImage: 'url(/images/manufacturing/immersive-factory/hero.jpg)',
           }}
         >
           <div className="container mx-auto text-center">
@@ -63,17 +95,17 @@ export function ManufacturingImmersiveFactoryPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <img
-                src="https://picsum.photos/600/400?random=18"
+                src="/images/manufacturing/immersive-factory/factory-area-1.jpg"
                 alt="Factory Area 1"
                 className="rounded-lg"
               />
               <img
-                src="https://picsum.photos/600/400?random=19"
+                src="/images/manufacturing/immersive-factory/factory-area-2.jpg"
                 alt="Factory Area 2"
                 className="rounded-lg"
               />
               <img
-                src="https://picsum.photos/600/400?random=20"
+                src="/images/manufacturing/immersive-factory/factory-area-3.jpg"
                 alt="Factory Area 3"
                 className="rounded-lg"
               />
@@ -98,7 +130,7 @@ export function ManufacturingImmersiveFactoryPage() {
               </div>
               <div>
                 <img
-                  src="https://picsum.photos/800/600?random=21"
+                  src="/images/manufacturing/immersive-factory/factory-workers.jpg"
                   alt="Factory workers"
                   className="rounded-lg shadow-xl"
                 />

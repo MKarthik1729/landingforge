@@ -15,8 +15,7 @@ export const servicesMotionTransformationDemo = defineDemo({
     headline: 'Make the client journey feel like momentum, not just a list of deliverables.',
     description:
       'This page style is strongest when the service offer depends on visible transformation, trust in process, and emotionally resonant storytelling.',
-    image:
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/services/motion-transformation/hero.jpg',
     imageAlt: 'Service consultant walking clients through a transformation plan',
   },
   heroChips: ['Narrative flow', 'Animated reveal', 'Outcome-focused'],

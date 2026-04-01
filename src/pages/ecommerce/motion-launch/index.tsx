@@ -1,6 +1,34 @@
+import { useState, useEffect } from 'react'
 import { EcommerceMotionLaunchNavbar } from './Navbar'
 
 export function EcommerceMotionLaunchPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/ecommerce/motion-launch/problem-solution.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-black text-white">
       <EcommerceMotionLaunchNavbar />
@@ -38,7 +66,7 @@ export function EcommerceMotionLaunchPage() {
               </div>
               <div>
                 <img
-                  src="https://picsum.photos/600/400?random=15"
+                  src="/images/ecommerce/motion-launch/problem-solution.jpg"
                   alt="Frustrated user"
                   className="rounded-lg"
                 />

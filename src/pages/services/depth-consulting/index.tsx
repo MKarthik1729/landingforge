@@ -1,6 +1,35 @@
+import { useState, useEffect } from 'react'
 import { ServicesDepthConsultingNavbar } from './Navbar'
 
 export function ServicesDepthConsultingPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/services/depth-consulting/consultant.jpg',
+      '/images/services/depth-consulting/lead-consultant.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white text-gray-800">
       <ServicesDepthConsultingNavbar />
@@ -22,7 +51,7 @@ export function ServicesDepthConsultingPage() {
               </div>
               <div>
                 <img
-                  src="https://picsum.photos/600/400?random=23"
+                  src="/images/services/depth-consulting/consultant.jpg"
                   alt="Consultant"
                   className="rounded-lg shadow-xl"
                 />
@@ -96,7 +125,7 @@ export function ServicesDepthConsultingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div>
                 <img
-                  src="https://picsum.photos/400/400?random=24"
+                  src="/images/services/depth-consulting/lead-consultant.jpg"
                   alt="Lead Consultant"
                   className="rounded-full mx-auto"
                 />

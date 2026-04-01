@@ -15,8 +15,7 @@ export const servicesDepthConsultingDemo = defineDemo({
     headline: 'When the offer is expensive, the interface needs to feel expensive too.',
     description:
       'This direction positions the service as high-value and strategic through deeper surfaces, slower pacing, and a tighter emphasis on authority.',
-    image:
-      'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/services/depth-consulting/hero.jpg',
     imageAlt: 'Executive consulting team in a premium boardroom environment',
   },
   heroChips: ['Premium surfaces', 'Authority cues', 'High-ticket CTA'],

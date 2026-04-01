@@ -59,7 +59,7 @@ export function ManufacturingMotionProcessPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div>
                 <img
-                  src="https://picsum.photos/800/600?random=22"
+                  src="/images/manufacturing/manufacturing-features.jpg"
                   alt="Manufacturing"
                   className="rounded-lg shadow-md"
                 />

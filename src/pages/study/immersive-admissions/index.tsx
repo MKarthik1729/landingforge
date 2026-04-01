@@ -1,6 +1,38 @@
+import { useState, useEffect } from 'react'
 import { StudyImmersiveAdmissionsNavbar } from './Navbar'
 
 export function StudyImmersiveAdmissionsPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/study/immersive-admissions/campus1.jpg',
+      '/images/study/immersive-admissions/campus2.jpg',
+      '/images/study/immersive-admissions/student1.jpg',
+      '/images/study/immersive-admissions/faculty1.jpg',
+      '/images/study/immersive-admissions/student2.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white text-gray-800">
       <StudyImmersiveAdmissionsNavbar />
@@ -31,12 +63,12 @@ export function StudyImmersiveAdmissionsPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <img
-                src="https://picsum.photos/800/600?random=34"
+                src="/images/study/immersive-admissions/campus1.jpg"
                 alt="Campus 1"
                 className="rounded-lg"
               />
               <img
-                src="https://picsum.photos/800/600?random=35"
+                src="/images/study/immersive-admissions/campus2.jpg"
                 alt="Campus 2"
                 className="rounded-lg"
               />
@@ -53,7 +85,7 @@ export function StudyImmersiveAdmissionsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               <div className="text-center">
                 <img
-                  src="https://picsum.photos/200/200?random=36"
+                  src="/images/study/immersive-admissions/student1.jpg"
                   alt="Student 1"
                   className="rounded-full mx-auto mb-4"
                 />
@@ -61,7 +93,7 @@ export function StudyImmersiveAdmissionsPage() {
               </div>
               <div className="text-center">
                 <img
-                  src="https://picsum.photos/200/200?random=37"
+                  src="/images/study/immersive-admissions/faculty1.jpg"
                   alt="Faculty 1"
                   className="rounded-full mx-auto mb-4"
                 />
@@ -69,7 +101,7 @@ export function StudyImmersiveAdmissionsPage() {
               </div>
               <div className="text-center">
                 <img
-                  src="https://picsum.photos/200/200?random=38"
+                  src="/images/study/immersive-admissions/student2.jpg"
                   alt="Student 2"
                   className="rounded-full mx-auto mb-4"
                 />

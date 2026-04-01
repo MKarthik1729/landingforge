@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { SiteLayout } from '../../../components/layout/SiteLayout'
 import { ReliableImage } from '../../../components/media/ReliableImage'
@@ -58,6 +59,35 @@ const studioServices = [
 ] as const
 
 export function ServicesImmersiveBrandPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/immersive-brand/bed.jpg',
+      '/images/immersive-brand/chair.jpg',
+      '/images/immersive-brand/sofa.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <SiteLayout
       palette={servicesImmersiveBrandPalette}

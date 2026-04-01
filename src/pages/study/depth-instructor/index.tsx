@@ -1,6 +1,36 @@
+import { useState, useEffect } from 'react'
 import { StudyDepthInstructorNavbar } from './Navbar'
 
 export function StudyDepthInstructorPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/study/depth-instructor/instructor.jpg',
+      '/images/study/depth-instructor/video1.jpg',
+      '/images/study/depth-instructor/video2.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white text-gray-800">
       <StudyDepthInstructorNavbar />
@@ -11,7 +41,7 @@ export function StudyDepthInstructorPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div>
                 <img
-                  src="https://picsum.photos/400/400?random=31"
+                  src="/images/study/depth-instructor/instructor.jpg"
                   alt="Instructor"
                   className="rounded-full mx-auto"
                 />
@@ -74,14 +104,14 @@ export function StudyDepthInstructorPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="relative">
                 <img
-                  src="https://picsum.photos/600/400?random=32"
+                  src="/images/study/depth-instructor/video1.jpg"
                   alt="Video 1"
                   className="rounded-lg"
                 />
               </div>
               <div className="relative">
                 <img
-                  src="https://picsum.photos/600/400?random=33"
+                  src="/images/study/depth-instructor/video2.jpg"
                   alt="Video 2"
                   className="rounded-lg"
                 />

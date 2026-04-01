@@ -1,6 +1,34 @@
+import { useState, useEffect } from 'react'
 import { ManufacturingCardRfqNavbar } from './Navbar'
 
 export function ManufacturingCardRfqPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/manufacturing/card-rfq/manufacturing-process.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-gray-100 text-gray-800">
       <ManufacturingCardRfqNavbar />
@@ -53,7 +81,7 @@ export function ManufacturingCardRfqPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div>
                 <img
-                  src="https://picsum.photos/800/600?random=16"
+                  src="/images/manufacturing/card-rfq/manufacturing-process.jpg"
                   alt="Manufacturing Process"
                   className="rounded-lg shadow-md"
                 />

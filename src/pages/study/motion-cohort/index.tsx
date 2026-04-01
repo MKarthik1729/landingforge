@@ -1,6 +1,42 @@
+import { useState, useEffect } from 'react'
 import { StudyMotionCohortNavbar } from './Navbar'
 
 export function StudyMotionCohortPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/study/motion-cohort/hero.jpg',
+      '/images/study/motion-cohort/participant1.jpg',
+      '/images/study/motion-cohort/participant2.jpg',
+      '/images/study/motion-cohort/participant3.jpg',
+      '/images/study/motion-cohort/participant4.jpg',
+      '/images/study/motion-cohort/gallery1.jpg',
+      '/images/study/motion-cohort/gallery2.jpg',
+      '/images/study/motion-cohort/gallery3.jpg',
+      '/images/study/motion-cohort/gallery4.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white text-gray-800">
       <StudyMotionCohortNavbar />
@@ -15,7 +51,7 @@ export function StudyMotionCohortPage() {
               Join our next cohort and accelerate your learning journey.
             </p>
             <img
-              src="https://picsum.photos/1200/600?random=39"
+              src="/images/study/motion-cohort/hero.jpg"
               alt="Cohort"
               className="mx-auto mb-8 rounded-lg"
             />
@@ -48,7 +84,7 @@ export function StudyMotionCohortPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
                 <img
-                  src="https://picsum.photos/200/200?random=40"
+                  src="/images/study/motion-cohort/participant1.jpg"
                   alt="Participant 1"
                   className="rounded-full mx-auto mb-4"
                 />
@@ -56,7 +92,7 @@ export function StudyMotionCohortPage() {
               </div>
               <div className="text-center">
                 <img
-                  src="https://picsum.photos/200/200?random=41"
+                  src="/images/study/motion-cohort/participant2.jpg"
                   alt="Participant 2"
                   className="rounded-full mx-auto mb-4"
                 />
@@ -64,7 +100,7 @@ export function StudyMotionCohortPage() {
               </div>
               <div className="text-center">
                 <img
-                  src="https://picsum.photos/200/200?random=42"
+                  src="/images/study/motion-cohort/participant3.jpg"
                   alt="Participant 3"
                   className="rounded-full mx-auto mb-4"
                 />
@@ -72,7 +108,7 @@ export function StudyMotionCohortPage() {
               </div>
               <div className="text-center">
                 <img
-                  src="https-picsum.photos/200/200?random=43"
+                  src="/images/study/motion-cohort/participant4.jpg"
                   alt="Participant 4"
                   className="rounded-full mx-auto mb-4"
                 />
@@ -102,22 +138,22 @@ export function StudyMotionCohortPage() {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <img
-                src="https://picsum.photos/400/300?random=44"
+                src="/images/study/motion-cohort/gallery1.jpg"
                 className="rounded-lg"
                 alt="Gallery 1"
               />
               <img
-                src="https://picsum.photos/400/300?random=45"
+                src="/images/study/motion-cohort/gallery2.jpg"
                 className="rounded-lg"
                 alt="Gallery 2"
               />
               <img
-                src="https://picsum.photos/400/300?random=46"
+                src="/images/study/motion-cohort/gallery3.jpg"
                 className="rounded-lg"
                 alt="Gallery 3"
               />
               <img
-                src="https://picsum.photos/400/300?random=47"
+                src="/images/study/motion-cohort/gallery4.jpg"
                 className="rounded-lg"
                 alt="Gallery 4"
               />

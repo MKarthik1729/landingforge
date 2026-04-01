@@ -16,7 +16,7 @@ export const manufacturingCardRfqDemo = defineDemo({
     description:
       'This direction uses modular cards, procurement-focused proof, and fast-scanning content blocks to help buyers confirm fit without needing a sales call first.',
     image:
-      'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1200&q=80',
+      '/images/landings/manufacturing-card-rfq-hero.jpg',
     imageAlt: 'Industrial engineer reviewing a large machine assembly',
   },
   heroChips: ['RFQ intake', 'Tolerance-first proof', 'Lead-routing clarity'],

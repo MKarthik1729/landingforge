@@ -16,7 +16,7 @@ export const manufacturingDepthCertificationsDemo = defineDemo({
     description:
       'This direction uses layered panels, deep surfaces, and stacked trust modules to position a manufacturer as a serious, systems-driven partner.',
     image:
-      'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80',
+      '/images/landings/manufacturing-depth-certifications-hero.jpg',
     imageAlt: 'Team reviewing industrial documentation and compliance materials',
   },
   heroChips: ['Certification-led', 'Deep surfaces', 'Premium B2B trust'],

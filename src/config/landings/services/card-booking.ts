@@ -15,8 +15,7 @@ export const servicesCardBookingDemo = defineDemo({
     headline: 'Turn service options into a clean, confidence-building booking flow.',
     description:
       'This direction is built for local and regional service brands that need comparison-friendly packages, quick trust signals, and a strong book-now CTA.',
-    image:
-      'https://images.unsplash.com/photo-1521790797524-b2497295b8a0?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/services/card-booking/hero.jpg',
     imageAlt: 'Service professional speaking with a client at a work site',
   },
   heroChips: ['Package cards', 'Fast booking', 'Local trust cues'],

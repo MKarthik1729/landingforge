@@ -1,6 +1,35 @@
+import { useState, useEffect } from 'react'
 import { EcommerceDepthSignatureNavbar } from './Navbar'
 
 export function EcommerceDepthSignaturePage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/ecommerce/depth-signature/hero.jpg',
+      '/images/ecommerce/depth-signature/product.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-stone-100 text-stone-800">
       <EcommerceDepthSignatureNavbar />
@@ -8,7 +37,7 @@ export function EcommerceDepthSignaturePage() {
         {/* Hero Section */}
         <section
           className="h-screen bg-cover bg-center flex items-center text-white"
-          style={{ backgroundImage: 'url(https://picsum.photos/1920/1080?random=5)' }}
+          style={{ backgroundImage: 'url(/images/ecommerce/depth-signature/hero.jpg)' }}
         >
           <div className="container mx-auto text-center">
             <h1 className="text-6xl font-serif mb-4">The Signature Line</h1>
@@ -39,7 +68,7 @@ export function EcommerceDepthSignaturePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div>
                 <img
-                  src="https://picsum.photos/800/600?random=6"
+                  src="/images/ecommerce/depth-signature/product.jpg"
                   alt="Product Detail"
                   className="rounded-lg shadow-xl"
                 />

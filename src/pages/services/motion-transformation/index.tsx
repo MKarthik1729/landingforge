@@ -1,6 +1,35 @@
+import { useState, useEffect } from 'react'
 import { ServicesMotionTransformationNavbar } from './Navbar'
 
 export function ServicesMotionTransformationPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/services/motion-transformation/before.jpg',
+      '/images/services/motion-transformation/after.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white text-gray-800">
       <ServicesMotionTransformationNavbar />
@@ -17,7 +46,7 @@ export function ServicesMotionTransformationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <img
-                  src="https://picsum.photos/600/400?random=25"
+                  src="/images/services/motion-transformation/before.jpg"
                   alt="Before"
                   className="rounded-lg"
                 />
@@ -25,7 +54,7 @@ export function ServicesMotionTransformationPage() {
               </div>
               <div>
                 <img
-                  src="https://picsum.photos/600/400?random=26"
+                  src="/images/services/motion-transformation/after.jpg"
                   alt="After"
                   className="rounded-lg"
                 />
@@ -85,7 +114,7 @@ export function ServicesMotionTransformationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="relative">
                 <img
-                  src="https://picsum.photos/600/400?random=27"
+                  src="/images/services/motion-transformation/testimonial-1.jpg"
                   alt="Testimonial 1"
                   className="rounded-lg"
                 />
@@ -97,7 +126,7 @@ export function ServicesMotionTransformationPage() {
               </div>
               <div className="relative">
                 <img
-                  src="https://picsum.photos/600/400?random=28"
+                  src="/images/services/motion-transformation/testimonial-2.jpg"
                   alt="Testimonial 2"
                   className="rounded-lg"
                 />

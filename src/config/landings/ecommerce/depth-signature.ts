@@ -16,7 +16,7 @@ export const ecommerceDepthSignatureDemo = defineDemo({
     description:
       'This direction is made for flagship products, premium materials, and commerce offers where perception is as important as product information.',
     image:
-      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80',
+      '/images/landings/ecommerce-depth-signature-hero.jpg',
     imageAlt: 'Premium single product showcased with dramatic lighting',
   },
   heroChips: ['Flagship SKU', 'Luxury depth', 'Premium conversion'],

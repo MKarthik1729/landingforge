@@ -16,7 +16,7 @@ export const ecommerceCardCollectionDemo = defineDemo({
     description:
       'This direction is built for curated drops, seasonal edits, and collection-first brands that need visual order without losing conversion momentum.',
     image:
-      'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1200&q=80',
+      '/images/landings/ecommerce-card-collection-hero.jpg',
     imageAlt: 'Curated ecommerce collection with apparel and accessories',
   },
   heroChips: ['Collection cards', 'Fast scan', 'Sale-ready structure'],

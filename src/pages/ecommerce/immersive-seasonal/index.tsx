@@ -1,6 +1,36 @@
+import { useState, useEffect } from 'react'
 import { EcommerceImmersiveSeasonalNavbar } from './Navbar'
 
 export function EcommerceImmersiveSeasonalPage() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = [
+      '/images/ecommerce/immersive-seasonal/hero.jpg',
+      '/images/ecommerce/immersive-seasonal/collection-1.jpg',
+      '/images/ecommerce/immersive-seasonal/collection-2.jpg',
+    ];
+
+    const loadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(loadImages).then(() => setImagesLoaded(true));
+  }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-gray-900 text-white">
       <EcommerceImmersiveSeasonalNavbar />
@@ -9,7 +39,7 @@ export function EcommerceImmersiveSeasonalPage() {
         <section
           className="h-screen bg-cover bg-center flex items-center"
           style={{
-            backgroundImage: 'url(https://picsum.photos/1920/1080?random=7)',
+            backgroundImage: 'url(/images/ecommerce/immersive-seasonal/hero.jpg)',
           }}
         >
           <div className="container mx-auto text-center">
@@ -32,14 +62,14 @@ export function EcommerceImmersiveSeasonalPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="relative">
                 <img
-                  src="https://picsum.photos/800/600?random=8"
+                  src="/images/ecommerce/immersive-seasonal/collection-1.jpg"
                   alt="Collection Item 1"
                   className="rounded-lg"
                 />
               </div>
               <div className="relative">
                 <img
-                  src="https://picsum.photos/800/600?random=9"
+                  src="/images/ecommerce/immersive-seasonal/collection-2.jpg"
                   alt="Collection Item 2"
                   className="rounded-lg"
                 />
@@ -65,7 +95,7 @@ export function EcommerceImmersiveSeasonalPage() {
               </div>
               <div>
                 <img
-                  src="https://picsum.photos/800/600?random=10"
+                  src="/images/ecommerce/immersive-seasonal/get-the-look.jpg"
                   alt="Styled Outfit"
                   className="rounded-lg shadow-xl"
                 />
@@ -80,22 +110,22 @@ export function EcommerceImmersiveSeasonalPage() {
             <h2 className="text-4xl font-bold mb-12">#WinterCollection</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <img
-                src="https://picsum.photos/400/400?random=11"
+                src="/images/ecommerce/immersive-seasonal/social-1.jpg"
                 alt="Social Media Post 1"
                 className="rounded-lg"
               />
               <img
-                src="https://picsum.photos/400/400?random=12"
+                src="/images/ecommerce/immersive-seasonal/social-2.jpg"
                 alt="Social Media Post 2"
                 className="rounded-lg"
               />
               <img
-                src="https://picsum.photos/400/400?random=13"
+                src="/images/ecommerce/immersive-seasonal/social-3.jpg"
                 alt="Social Media Post 3"
                 className="rounded-lg"
               />
               <img
-                src="https://picsum.photos/400/400?random=14"
+                src="/images/ecommerce/immersive-seasonal/social-4.jpg"
                 alt="Social Media Post 4"
                 className="rounded-lg"
               />
