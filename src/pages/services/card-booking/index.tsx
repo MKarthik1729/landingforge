@@ -1,9 +1,17 @@
 import { ServicesCardBookingNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { servicesCardBookingPalette } from '../../../theme/palettes/services/card-booking'
+import { servicesCardBookingDemo } from '../../../config/landings/services/card-booking'
 
 export function ServicesCardBookingPage() {
   return (
-    <div className="bg-white text-gray-800">
-      <ServicesCardBookingNavbar />
+  <SiteLayout
+    palette={servicesCardBookingPalette}
+    navbarMode={servicesCardBookingDemo.navbarMode}
+    currentCategory={servicesCardBookingDemo.category}
+    title={servicesCardBookingDemo.title}
+    customNavbar={<ServicesCardBookingNavbar />}
+  >
       <main>
         {/* Hero Section */}
         <section className="bg-blue-100 py-20">
@@ -104,6 +112,6 @@ export function ServicesCardBookingPage() {
           </div>
         </footer>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

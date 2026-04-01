@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { ManufacturingImmersiveFactoryNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { manufacturingImmersiveFactoryPalette } from '../../../theme/palettes/manufacturing/immersive-factory'
+import { manufacturingImmersiveFactoryDemo } from '../../../config/landings/manufacturing/immersive-factory'
 
 export function ManufacturingImmersiveFactoryPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -27,15 +30,26 @@ export function ManufacturingImmersiveFactoryPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={manufacturingImmersiveFactoryPalette}
+    navbarMode={manufacturingImmersiveFactoryDemo.navbarMode}
+    currentCategory={manufacturingImmersiveFactoryDemo.category}
+    title={manufacturingImmersiveFactoryDemo.title}
+    customNavbar={<ManufacturingImmersiveFactoryNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-gray-900 text-white">
-      <ManufacturingImmersiveFactoryNavbar />
+    <SiteLayout
+      palette={manufacturingImmersiveFactoryPalette}
+      navbarMode={manufacturingImmersiveFactoryDemo.navbarMode}
+      currentCategory={manufacturingImmersiveFactoryDemo.category}
+      title={manufacturingImmersiveFactoryDemo.title}
+      customNavbar={<ManufacturingImmersiveFactoryNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section
@@ -154,6 +168,6 @@ export function ManufacturingImmersiveFactoryPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

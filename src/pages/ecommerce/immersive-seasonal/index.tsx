@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { EcommerceImmersiveSeasonalNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { ecommerceImmersiveSeasonalPalette } from '../../../theme/palettes/ecommerce/immersive-seasonal'
+import { ecommerceImmersiveSeasonalDemo } from '../../../config/landings/ecommerce/immersive-seasonal'
 
 export function EcommerceImmersiveSeasonalPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -25,15 +28,26 @@ export function EcommerceImmersiveSeasonalPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={ecommerceImmersiveSeasonalPalette}
+    navbarMode={ecommerceImmersiveSeasonalDemo.navbarMode}
+    currentCategory={ecommerceImmersiveSeasonalDemo.category}
+    title={ecommerceImmersiveSeasonalDemo.title}
+    customNavbar={<EcommerceImmersiveSeasonalNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-gray-900 text-white">
-      <EcommerceImmersiveSeasonalNavbar />
+    <SiteLayout
+      palette={ecommerceImmersiveSeasonalPalette}
+      navbarMode={ecommerceImmersiveSeasonalDemo.navbarMode}
+      currentCategory={ecommerceImmersiveSeasonalDemo.category}
+      title={ecommerceImmersiveSeasonalDemo.title}
+      customNavbar={<EcommerceImmersiveSeasonalNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section
@@ -152,6 +166,6 @@ export function EcommerceImmersiveSeasonalPage() {
           </div>
         </footer>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

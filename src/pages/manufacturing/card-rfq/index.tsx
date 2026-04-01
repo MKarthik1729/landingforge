@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { ManufacturingCardRfqNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { manufacturingCardRfqPalette } from '../../../theme/palettes/manufacturing/card-rfq'
+import { manufacturingCardRfqDemo } from '../../../config/landings/manufacturing/card-rfq'
 
 export function ManufacturingCardRfqPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -23,15 +26,26 @@ export function ManufacturingCardRfqPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={manufacturingCardRfqPalette}
+    navbarMode={manufacturingCardRfqDemo.navbarMode}
+    currentCategory={manufacturingCardRfqDemo.category}
+    title={manufacturingCardRfqDemo.title}
+    customNavbar={<ManufacturingCardRfqNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-gray-100 text-gray-800">
-      <ManufacturingCardRfqNavbar />
+    <SiteLayout
+      palette={manufacturingCardRfqPalette}
+      navbarMode={manufacturingCardRfqDemo.navbarMode}
+      currentCategory={manufacturingCardRfqDemo.category}
+      title={manufacturingCardRfqDemo.title}
+      customNavbar={<ManufacturingCardRfqNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section className="bg-white py-20 text-center">
@@ -163,6 +177,6 @@ export function ManufacturingCardRfqPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

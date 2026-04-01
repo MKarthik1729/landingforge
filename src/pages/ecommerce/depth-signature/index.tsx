@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { EcommerceDepthSignatureNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { ecommerceDepthSignaturePalette } from '../../../theme/palettes/ecommerce/depth-signature'
+import { ecommerceDepthSignatureDemo } from '../../../config/landings/ecommerce/depth-signature'
 
 export function EcommerceDepthSignaturePage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -24,15 +27,26 @@ export function EcommerceDepthSignaturePage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={ecommerceDepthSignaturePalette}
+    navbarMode={ecommerceDepthSignatureDemo.navbarMode}
+    currentCategory={ecommerceDepthSignatureDemo.category}
+    title={ecommerceDepthSignatureDemo.title}
+    customNavbar={<EcommerceDepthSignatureNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-stone-100 text-stone-800">
-      <EcommerceDepthSignatureNavbar />
+    <SiteLayout
+      palette={ecommerceDepthSignaturePalette}
+      navbarMode={ecommerceDepthSignatureDemo.navbarMode}
+      currentCategory={ecommerceDepthSignatureDemo.category}
+      title={ecommerceDepthSignatureDemo.title}
+      customNavbar={<EcommerceDepthSignatureNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section
@@ -118,6 +132,6 @@ export function EcommerceDepthSignaturePage() {
           </div>
         </footer>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

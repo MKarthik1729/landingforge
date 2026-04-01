@@ -1,9 +1,17 @@
 import { ManufacturingMotionProcessNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { manufacturingMotionProcessPalette } from '../../../theme/palettes/manufacturing/motion-process'
+import { manufacturingMotionProcessDemo } from '../../../config/landings/manufacturing/motion-process'
 
 export function ManufacturingMotionProcessPage() {
   return (
-    <div className="bg-white text-gray-800">
-      <ManufacturingMotionProcessNavbar />
+  <SiteLayout
+    palette={manufacturingMotionProcessPalette}
+    navbarMode={manufacturingMotionProcessDemo.navbarMode}
+    currentCategory={manufacturingMotionProcessDemo.category}
+    title={manufacturingMotionProcessDemo.title}
+    customNavbar={<ManufacturingMotionProcessNavbar />}
+  >
       <main>
         {/* Hero Section */}
         <section className="py-20 text-center">
@@ -111,6 +119,6 @@ export function ManufacturingMotionProcessPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

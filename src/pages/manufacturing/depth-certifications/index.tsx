@@ -1,9 +1,17 @@
 import { ManufacturingDepthCertificationsNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { manufacturingDepthCertificationsPalette } from '../../../theme/palettes/manufacturing/depth-certifications'
+import { manufacturingDepthCertificationsDemo } from '../../../config/landings/manufacturing/depth-certifications'
 
 export function ManufacturingDepthCertificationsPage() {
   return (
-    <div className="bg-white text-gray-800">
-      <ManufacturingDepthCertificationsNavbar />
+  <SiteLayout
+    palette={manufacturingDepthCertificationsPalette}
+    navbarMode={manufacturingDepthCertificationsDemo.navbarMode}
+    currentCategory={manufacturingDepthCertificationsDemo.category}
+    title={manufacturingDepthCertificationsDemo.title}
+    customNavbar={<ManufacturingDepthCertificationsNavbar />}
+  >
       <main>
         {/* Hero Section */}
         <section className="bg-blue-900 text-white py-20 text-center">
@@ -120,6 +128,6 @@ export function ManufacturingDepthCertificationsPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

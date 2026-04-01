@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { EcommerceMotionLaunchNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { ecommerceMotionLaunchPalette } from '../../../theme/palettes/ecommerce/motion-launch'
+import { ecommerceMotionLaunchDemo } from '../../../config/landings/ecommerce/motion-launch'
 
 export function EcommerceMotionLaunchPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -23,15 +26,26 @@ export function EcommerceMotionLaunchPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={ecommerceMotionLaunchPalette}
+    navbarMode={ecommerceMotionLaunchDemo.navbarMode}
+    currentCategory={ecommerceMotionLaunchDemo.category}
+    title={ecommerceMotionLaunchDemo.title}
+    customNavbar={<EcommerceMotionLaunchNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-black text-white">
-      <EcommerceMotionLaunchNavbar />
+    <SiteLayout
+      palette={ecommerceMotionLaunchPalette}
+      navbarMode={ecommerceMotionLaunchDemo.navbarMode}
+      currentCategory={ecommerceMotionLaunchDemo.category}
+      title={ecommerceMotionLaunchDemo.title}
+      customNavbar={<EcommerceMotionLaunchNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section className="py-20 text-center">
@@ -139,6 +153,6 @@ export function EcommerceMotionLaunchPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { ServicesMotionTransformationNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { servicesMotionTransformationPalette } from '../../../theme/palettes/services/motion-transformation'
+import { servicesMotionTransformationDemo } from '../../../config/landings/services/motion-transformation'
 
 export function ServicesMotionTransformationPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -24,15 +27,26 @@ export function ServicesMotionTransformationPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={servicesMotionTransformationPalette}
+    navbarMode={servicesMotionTransformationDemo.navbarMode}
+    currentCategory={servicesMotionTransformationDemo.category}
+    title={servicesMotionTransformationDemo.title}
+    customNavbar={<ServicesMotionTransformationNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-white text-gray-800">
-      <ServicesMotionTransformationNavbar />
+    <SiteLayout
+      palette={servicesMotionTransformationPalette}
+      navbarMode={servicesMotionTransformationDemo.navbarMode}
+      currentCategory={servicesMotionTransformationDemo.category}
+      title={servicesMotionTransformationDemo.title}
+      customNavbar={<ServicesMotionTransformationNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section className="py-20 text-center">
@@ -155,6 +169,6 @@ export function ServicesMotionTransformationPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { EcommerceCardCollectionNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { ecommerceCardCollectionPalette } from '../../../theme/palettes/ecommerce/card-collection'
+import { ecommerceCardCollectionDemo } from '../../../config/landings/ecommerce/card-collection'
 
 export function EcommerceCardCollectionPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -26,15 +29,26 @@ export function EcommerceCardCollectionPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={ecommerceCardCollectionPalette}
+    navbarMode={ecommerceCardCollectionDemo.navbarMode}
+    currentCategory={ecommerceCardCollectionDemo.category}
+    title={ecommerceCardCollectionDemo.title}
+    customNavbar={<EcommerceCardCollectionNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-white text-gray-800">
-      <EcommerceCardCollectionNavbar />
+    <SiteLayout
+      palette={ecommerceCardCollectionPalette}
+      navbarMode={ecommerceCardCollectionDemo.navbarMode}
+      currentCategory={ecommerceCardCollectionDemo.category}
+      title={ecommerceCardCollectionDemo.title}
+      customNavbar={<EcommerceCardCollectionNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section className="bg-gray-100 py-20 text-center">
@@ -142,6 +156,6 @@ export function EcommerceCardCollectionPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

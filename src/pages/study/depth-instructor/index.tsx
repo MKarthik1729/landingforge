@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { StudyDepthInstructorNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { studyDepthInstructorPalette } from '../../../theme/palettes/study/depth-instructor'
+import { studyDepthInstructorDemo } from '../../../config/landings/study/depth-instructor'
 
 export function StudyDepthInstructorPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -25,15 +28,26 @@ export function StudyDepthInstructorPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={studyDepthInstructorPalette}
+    navbarMode={studyDepthInstructorDemo.navbarMode}
+    currentCategory={studyDepthInstructorDemo.category}
+    title={studyDepthInstructorDemo.title}
+    customNavbar={<StudyDepthInstructorNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-white text-gray-800">
-      <StudyDepthInstructorNavbar />
+    <SiteLayout
+      palette={studyDepthInstructorPalette}
+      navbarMode={studyDepthInstructorDemo.navbarMode}
+      currentCategory={studyDepthInstructorDemo.category}
+      title={studyDepthInstructorDemo.title}
+      customNavbar={<StudyDepthInstructorNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section className="py-20 bg-gray-100">
@@ -153,6 +167,6 @@ export function StudyDepthInstructorPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

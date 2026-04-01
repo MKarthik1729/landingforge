@@ -12,6 +12,14 @@ export function HomePage() {
     ecommerce: 0,
     study: 0,
   });
+  const [showFeaturePopup, setShowFeaturePopup] = useState(true)
+
+  useEffect(() => {
+    const popupTimer = window.setTimeout(() => setShowFeaturePopup(false), 11000)
+    return () => {
+      window.clearTimeout(popupTimer)
+    }
+  }, [])
 
   useEffect(() => {
     const categories = Object.keys(demosByCategory) as (keyof typeof demosByCategory)[];
@@ -36,6 +44,27 @@ export function HomePage() {
       title="Design Agency"
     >
       <div style={{ backgroundColor: 'var(--page-bg)', color: 'var(--page-text)' }}>
+        {showFeaturePopup && (
+          <div className="fixed top-4 right-4 z-[80] max-w-xs rounded-2xl border border-brand-300 bg-white/95 p-4 text-sm shadow-lg backdrop-blur transition-all duration-300 dark:border-slate-600 dark:bg-slate-900/90">
+            <div className="flex items-start justify-between gap-2">
+              <strong className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Quick tips
+              </strong>
+              <button
+                onClick={() => setShowFeaturePopup(false)}
+                className="text-xs font-semibold text-slate-500 hover:text-slate-700 dark:text-slate-300 dark:hover:text-white"
+                aria-label="Close popup"
+              >
+                ✕
+              </button>
+            </div>
+            <ul className="mt-2 space-y-1 text-xs">
+              <li>Right-bottom: mode switch (dark/light) is always available.</li>
+              <li>Top navbar: use the categories to browse demos.</li>
+              <li>Next demo: the button on the right of demo navbars loads the next demo.</li>
+            </ul>
+          </div>
+        )}
         {/* Hero Section */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

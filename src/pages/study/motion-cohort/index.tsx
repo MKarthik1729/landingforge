@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { StudyMotionCohortNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { studyMotionCohortPalette } from '../../../theme/palettes/study/motion-cohort'
+import { studyMotionCohortDemo } from '../../../config/landings/study/motion-cohort'
 
 export function StudyMotionCohortPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -31,15 +34,26 @@ export function StudyMotionCohortPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={studyMotionCohortPalette}
+    navbarMode={studyMotionCohortDemo.navbarMode}
+    currentCategory={studyMotionCohortDemo.category}
+    title={studyMotionCohortDemo.title}
+    customNavbar={<StudyMotionCohortNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-white text-gray-800">
-      <StudyMotionCohortNavbar />
+    <SiteLayout
+      palette={studyMotionCohortPalette}
+      navbarMode={studyMotionCohortDemo.navbarMode}
+      currentCategory={studyMotionCohortDemo.category}
+      title={studyMotionCohortDemo.title}
+      customNavbar={<StudyMotionCohortNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section className="py-20 text-center">
@@ -176,6 +190,6 @@ export function StudyMotionCohortPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

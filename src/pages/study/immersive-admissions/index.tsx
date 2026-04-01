@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { StudyImmersiveAdmissionsNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { studyImmersiveAdmissionsPalette } from '../../../theme/palettes/study/immersive-admissions'
+import { studyImmersiveAdmissionsDemo } from '../../../config/landings/study/immersive-admissions'
 
 export function StudyImmersiveAdmissionsPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -27,15 +30,26 @@ export function StudyImmersiveAdmissionsPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={studyImmersiveAdmissionsPalette}
+    navbarMode={studyImmersiveAdmissionsDemo.navbarMode}
+    currentCategory={studyImmersiveAdmissionsDemo.category}
+    title={studyImmersiveAdmissionsDemo.title}
+    customNavbar={<StudyImmersiveAdmissionsNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-white text-gray-800">
-      <StudyImmersiveAdmissionsNavbar />
+    <SiteLayout
+      palette={studyImmersiveAdmissionsPalette}
+      navbarMode={studyImmersiveAdmissionsDemo.navbarMode}
+      currentCategory={studyImmersiveAdmissionsDemo.category}
+      title={studyImmersiveAdmissionsDemo.title}
+      customNavbar={<StudyImmersiveAdmissionsNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section className="py-20 text-center">
@@ -168,6 +182,6 @@ export function StudyImmersiveAdmissionsPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

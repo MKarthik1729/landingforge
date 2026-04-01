@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { ServicesDepthConsultingNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { servicesDepthConsultingPalette } from '../../../theme/palettes/services/depth-consulting'
+import { servicesDepthConsultingDemo } from '../../../config/landings/services/depth-consulting'
 
 export function ServicesDepthConsultingPage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -24,15 +27,26 @@ export function ServicesDepthConsultingPage() {
 
   if (!imagesLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+  <SiteLayout
+    palette={servicesDepthConsultingPalette}
+    navbarMode={servicesDepthConsultingDemo.navbarMode}
+    currentCategory={servicesDepthConsultingDemo.category}
+    title={servicesDepthConsultingDemo.title}
+    customNavbar={<ServicesDepthConsultingNavbar />}
+  >
         <div className="text-xl">Loading...</div>
-      </div>
+      </SiteLayout>
     );
   }
 
   return (
-    <div className="bg-white text-gray-800">
-      <ServicesDepthConsultingNavbar />
+    <SiteLayout
+      palette={servicesDepthConsultingPalette}
+      navbarMode={servicesDepthConsultingDemo.navbarMode}
+      currentCategory={servicesDepthConsultingDemo.category}
+      title={servicesDepthConsultingDemo.title}
+      customNavbar={<ServicesDepthConsultingNavbar />}
+    >
       <main>
         {/* Hero Section */}
         <section className="bg-navy-900  py-20">
@@ -190,6 +204,6 @@ export function ServicesDepthConsultingPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }

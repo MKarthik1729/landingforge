@@ -1,9 +1,17 @@
 import { StudyCardEnrollmentNavbar } from './Navbar'
+import { SiteLayout } from '../../../components/layout/SiteLayout'
+import { studyCardEnrollmentPalette } from '../../../theme/palettes/study/card-enrollment'
+import { studyCardEnrollmentDemo } from '../../../config/landings/study/card-enrollment'
 
 export function StudyCardEnrollmentPage() {
   return (
-    <div className="bg-gray-100 text-gray-800">
-      <StudyCardEnrollmentNavbar />
+  <SiteLayout
+    palette={studyCardEnrollmentPalette}
+    navbarMode={studyCardEnrollmentDemo.navbarMode}
+    currentCategory={studyCardEnrollmentDemo.category}
+    title={studyCardEnrollmentDemo.title}
+    customNavbar={<StudyCardEnrollmentNavbar />}
+  >
       <main>
         {/* Hero Section */}
         <section className="bg-blue-800 text-white py-20 text-center">
@@ -149,6 +157,6 @@ export function StudyCardEnrollmentPage() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteLayout>
   )
 }
