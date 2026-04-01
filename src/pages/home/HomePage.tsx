@@ -181,7 +181,7 @@ export function HomePage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20" style={{ backgroundColor: 'var(--page-bg-alt)' }}>
+        {/* <section id="contact" className="py-20" style={{ backgroundColor: 'var(--page-bg-alt)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold">Let's Create Something Amazing</h2>
@@ -209,8 +209,29 @@ export function HomePage() {
               </div>
             </form>
           </div>
-        </section>
+        </section> */}
+<section id="contact" className="py-20" style={{ backgroundColor: 'var(--page-bg-alt)' }}>
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl font-bold">Let's Create Something Amazing</h2>
+      <p className="mt-2 text-lg" style={{ color: 'var(--page-text-muted)' }}>
+        For website creation and project inquiries, feel free to reach out through the details below.
+      </p>
+    </div>
 
+    <div className="p-8 rounded-lg shadow-lg text-center" style={{ backgroundColor: 'var(--page-surface)' }}>
+      <p className="text-lg mb-4">
+        📧 Email: <a href="mailto:mkarthik1729@gmail.com" className="text-teal-500 font-semibold">mkarthik1729@gmail.com</a>
+      </p>
+      <p className="text-lg mb-4">
+        📞 Phone: <a href="tel:+917671859776" className="text-teal-500 font-semibold">+91 76718 59776</a>
+      </p>
+      <p className="mt-6 text-md" style={{ color: 'var(--page-text-muted)' }}>
+        I typically respond within 24 hours. Looking forward to working with you!
+      </p>
+    </div>
+  </div>
+</section>
         {/* Footer */}
         <footer style={{ backgroundColor: 'var(--page-bg)' }}>
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
