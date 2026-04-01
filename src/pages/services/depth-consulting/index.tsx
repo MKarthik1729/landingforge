@@ -35,7 +35,7 @@ export function ServicesDepthConsultingPage() {
       <ServicesDepthConsultingNavbar />
       <main>
         {/* Hero Section */}
-        <section className="bg-navy-900 text-white py-20">
+        <section className="bg-navy-900  py-20">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div>
@@ -45,7 +45,7 @@ export function ServicesDepthConsultingPage() {
                 <p className="text-lg mb-8">
                   Expert consulting for transformative growth.
                 </p>
-                <button className="bg-gold-500 hover:bg-gold-600 text-white font-bold py-3 px-8 rounded">
+                <button className="bg-gold-500 hover:bg-gold-600  font-bold py-3 px-8 rounded">
                   Schedule a Consultation
                 </button>
               </div>

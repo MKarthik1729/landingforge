@@ -16,19 +16,19 @@ import { studyImmersiveAdmissionsDemo } from './study/immersive-admissions'
 import { studyMotionCohortDemo } from './study/motion-cohort'
 
 export const allDemos = [
-  manufacturingCardRfqDemo,
-  manufacturingMotionProcessDemo,
-  manufacturingDepthCertificationsDemo,
-  manufacturingImmersiveFactoryDemo,
-  servicesCardBookingDemo,
-  servicesMotionTransformationDemo,
-  servicesDepthConsultingDemo,
-  servicesImmersiveBrandDemo,
-  ecommerceCardCollectionDemo,
-  ecommerceMotionLaunchDemo,
-  ecommerceDepthSignatureDemo,
-  ecommerceImmersiveSeasonalDemo,
-  studyCardEnrollmentDemo,
+  // manufacturingCardRfqDemo,
+  // manufacturingMotionProcessDemo,
+  // manufacturingDepthCertificationsDemo,
+  manufacturingImmersiveFactoryDemo,  //good
+  // servicesCardBookingDemo,
+  servicesMotionTransformationDemo,  // okok
+  // servicesDepthConsultingDemo,  // first change need to make and simpleones
+  servicesImmersiveBrandDemo, //good
+  // ecommerceCardCollectionDemo,
+  // ecommerceMotionLaunchDemo, 
+  ecommerceDepthSignatureDemo, // okok
+  ecommerceImmersiveSeasonalDemo, //okok
+  // studyCardEnrollmentDemo,
   studyMotionCohortDemo,
   studyDepthInstructorDemo,
   studyImmersiveAdmissionsDemo,
