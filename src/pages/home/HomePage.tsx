@@ -4,22 +4,24 @@ import { demosByCategory, getDemoPath } from '../../config/landings'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { ReliableImage } from '../../components/media/ReliableImage'
+import { useNavigate } from 'react-router-dom'
 
 export function HomePage() {
+  const navigate = useNavigate()
   const [currentIndices, setCurrentIndices] = useState<Record<string, number>>({
     manufacturing: 0,
     services: 0,
     ecommerce: 0,
     study: 0,
   });
-  const [showFeaturePopup, setShowFeaturePopup] = useState(true)
+  // const [showFeaturePopup, setShowFeaturePopup] = useState(true)
 
-  useEffect(() => {
-    const popupTimer = window.setTimeout(() => setShowFeaturePopup(false), 11000)
-    return () => {
-      window.clearTimeout(popupTimer)
-    }
-  }, [])
+  // useEffect(() => {
+  //   const popupTimer = window.setTimeout(() => setShowFeaturePopup(false), 11000)
+  //   return () => {
+  //     window.clearTimeout(popupTimer)
+  //   }
+  // }, [])
 
   useEffect(() => {
     const categories = Object.keys(demosByCategory) as (keyof typeof demosByCategory)[];
@@ -44,7 +46,7 @@ export function HomePage() {
       title="Design Agency"
     >
       <div style={{ backgroundColor: 'var(--page-bg)', color: 'var(--page-text)' }}>
-        {showFeaturePopup && (
+        {/* {showFeaturePopup && (
           <div className="fixed top-4 right-4 z-[80] max-w-xs rounded-2xl border border-brand-300 bg-white/95 p-4 text-sm shadow-lg backdrop-blur transition-all duration-300 dark:border-slate-600 dark:bg-slate-900/90">
             <div className="flex items-start justify-between gap-2">
               <strong className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">
@@ -64,7 +66,7 @@ export function HomePage() {
               <li>Next demo: the button on the right of demo navbars loads the next demo.</li>
             </ul>
           </div>
-        )}
+        )} */}
         {/* Hero Section */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -82,6 +84,9 @@ export function HomePage() {
                 </a>
                 <a href="#benefits" className="font-bold py-3 px-6 rounded-lg shadow-lg transition-colors" style={{ backgroundColor: 'var(--page-surface)', color: 'var(--page-accent)'}}>
                   Learn More
+                </a>
+                <a href="/services/immersive-brand" className="font-bold py-3 px-6 rounded-lg shadow-lg transition-colors" style={{ backgroundColor: 'var(--page-surface)', color: '#73af73'}}>
+                  Browse Demos
                 </a>
               </div>
             </div>
@@ -101,7 +106,9 @@ export function HomePage() {
                      <div className="h-4 rounded-t-lg" style={{ backgroundColor: 'var(--page-surface-strong)' }}></div>
                     <p className="p-4">Corporate</p>
                 </div>
-                <div className="absolute bottom-0 right-20" style={{ color: 'var(--page-text-muted)' }}>
+                <div className="absolute bottom-0 right-20"
+                onClick={() => navigate('/services/immersive-brand')}
+                style={{ color: 'var(--page-text-muted)' }}>
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </div>
             </div>
