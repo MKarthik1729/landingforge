@@ -20,15 +20,15 @@ export const allDemos = [
   manufacturingMotionProcessDemo,
   manufacturingDepthCertificationsDemo,
   manufacturingImmersiveFactoryDemo,  //good
-  // servicesCardBookingDemo,
-  servicesMotionTransformationDemo,  // okok
-  // servicesDepthConsultingDemo,  // first change need to make and simpleones
+  servicesCardBookingDemo,
+  servicesMotionTransformationDemo,  
+  servicesDepthConsultingDemo,  
   servicesImmersiveBrandDemo, //good
-  // ecommerceCardCollectionDemo,
-  // ecommerceMotionLaunchDemo, 
+  ecommerceCardCollectionDemo,
+  ecommerceMotionLaunchDemo, 
   ecommerceDepthSignatureDemo, // okok
   ecommerceImmersiveSeasonalDemo, //okok
-  // studyCardEnrollmentDemo,
+  studyCardEnrollmentDemo,
   studyMotionCohortDemo,
   studyDepthInstructorDemo,
   studyImmersiveAdmissionsDemo,
