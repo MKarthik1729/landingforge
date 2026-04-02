@@ -16,7 +16,7 @@ export const studyMotionCohortDemo = defineDemo({
     description:
       'This concept is ideal for cohort-based learning, bootcamps, or coaching programs that rely on momentum, community, and progression.',
     image:
-      '/images/landings/study-motion-cohort-hero.jpg',
+      '/images/study/motion-cohort/hero.jpg',
     imageAlt: 'Learning cohort in an active classroom and mentoring setting',
   },
   heroChips: ['Cohort momentum', 'Progress storytelling', 'Animated pacing'],

@@ -16,7 +16,7 @@ export const manufacturingImmersiveFactoryDemo = defineDemo({
     description:
       'This variant uses image-driven storytelling, environmental overlays, and interactive focus states to make the facility feel tangible before a visit is ever booked.',
     image:
-      '/images/landings/manufacturing-immersive-factory-hero.jpg',
+      '/images/manufacturing/immersive-factory/hero.jpg',
     imageAlt: 'Wide industrial factory floor with machinery and lighting',
   },
   heroChips: ['Full-bleed imagery', 'Interactive hotspots', 'Plant-tour energy'],

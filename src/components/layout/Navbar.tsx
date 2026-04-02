@@ -15,18 +15,18 @@ type NavbarProps = {
 
 const navItems = [
   { label: 'Home', href: '/', match: 'home' },
-  {
-    label: categoryMeta.manufacturing.label,
-    href: '/#manufacturing',
-    match: 'manufacturing',
-  },
   { label: categoryMeta.services.label, href: '/#services', match: 'services' },
+  { label: categoryMeta.study.label, href: '/#study', match: 'study' },
   {
     label: categoryMeta.ecommerce.label,
     href: '/#ecommerce',
     match: 'ecommerce',
   },
-  { label: categoryMeta.study.label, href: '/#study', match: 'study' },
+  {
+    label: categoryMeta.manufacturing.label,
+    href: '/#manufacturing',
+    match: 'manufacturing',
+  },
   { label: 'Contact', href: '/#contact', match: 'contact' },
 ] as const
 

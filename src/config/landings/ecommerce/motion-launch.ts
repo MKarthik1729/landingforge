@@ -16,7 +16,7 @@ export const ecommerceMotionLaunchDemo = defineDemo({
     description:
       'This motion-led direction is designed for countdowns, product launches, high-energy sale windows, and collection drops with hype.',
     image:
-      '/images/landings/ecommerce-motion-launch-hero.jpg',
+      '/images/ecommerce/motion-launch/hero.jpg',
     imageAlt: 'Stylized ecommerce launch campaign with products and dramatic lighting',
   },
   heroChips: ['Launch energy', 'Animated reveal', 'Drop campaign flow'],

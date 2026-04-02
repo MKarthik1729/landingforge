@@ -16,7 +16,7 @@ export const studyDepthInstructorDemo = defineDemo({
     description:
       'This direction is best for instructor-led programs, exam-prep brands, and authority-based education offers that depend on confidence in the mentor.',
     image:
-      '/images/landings/study-depth-instructor-hero.jpg',
+      '/images/study/depth-instructor/instructor.jpg',
     imageAlt: 'Experienced instructor teaching students in a focused setting',
   },
   heroChips: ['Instructor authority', 'Proof depth', 'Outcome trust'],

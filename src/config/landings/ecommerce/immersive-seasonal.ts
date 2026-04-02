@@ -16,7 +16,7 @@ export const ecommerceImmersiveSeasonalDemo = defineDemo({
     description:
       'This full-image direction is designed for holiday edits, seasonal releases, and brand moments where atmosphere and mood matter as much as the product.',
     image:
-      '/images/landings/ecommerce-immersive-seasonal-hero.jpg',
+      '/images/ecommerce/immersive-seasonal/hero.jpg',
     imageAlt: 'Lifestyle ecommerce campaign imagery for a seasonal collection',
   },
   heroChips: ['Campaign atmosphere', 'Lifestyle imagery', 'Immersive merchandising'],

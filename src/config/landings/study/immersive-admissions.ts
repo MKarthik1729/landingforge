@@ -16,7 +16,7 @@ export const studyImmersiveAdmissionsDemo = defineDemo({
     description:
       'This full-image concept is suited to schools, academies, or standout education brands where environment, aspiration, and identity matter deeply.',
     image:
-      '/images/landings/study-immersive-admissions-hero.jpg',
+      '/images/study/immersive-admissions/hero.jpg',
     imageAlt: 'Campus-style educational environment with students walking outdoors',
   },
   heroChips: ['Admissions feel', 'Environment-led', 'Immersive story'],

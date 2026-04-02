@@ -5,6 +5,7 @@ import { buildPaletteStyle, getPaletteTokens } from '../../theme/buildPaletteSty
 import type { PaletteDefinition } from '../../theme/palettes/types'
 import { Navbar } from './Navbar'
 import { ThemeToggle } from './ThemeToggle'
+import { CornerNextDemoButton } from './CornerNextDemoButton'
 
 type SiteLayoutProps = {
   palette: PaletteDefinition
@@ -48,6 +49,7 @@ export function SiteLayout({
         )}
         <main>{children}</main>
         <ThemeToggle />
+        <CornerNextDemoButton />
       </div>
     </div>
   )

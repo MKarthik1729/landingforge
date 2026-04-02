@@ -16,48 +16,48 @@ import { studyImmersiveAdmissionsDemo } from './study/immersive-admissions'
 import { studyMotionCohortDemo } from './study/motion-cohort'
 
 export const allDemos = [
-  manufacturingCardRfqDemo,
-  manufacturingMotionProcessDemo,
-  manufacturingDepthCertificationsDemo,
-  manufacturingImmersiveFactoryDemo,  //good
   servicesCardBookingDemo,
   servicesMotionTransformationDemo,  
   servicesDepthConsultingDemo,  
+  studyCardEnrollmentDemo,
+  studyMotionCohortDemo,
+  studyDepthInstructorDemo,
+  studyImmersiveAdmissionsDemo,
   servicesImmersiveBrandDemo, //good
   ecommerceCardCollectionDemo,
   ecommerceMotionLaunchDemo, 
   ecommerceDepthSignatureDemo, // okok
   ecommerceImmersiveSeasonalDemo, //okok
-  studyCardEnrollmentDemo,
-  studyMotionCohortDemo,
-  studyDepthInstructorDemo,
-  studyImmersiveAdmissionsDemo,
+  manufacturingCardRfqDemo,
+  manufacturingMotionProcessDemo,
+  manufacturingDepthCertificationsDemo,
+  manufacturingImmersiveFactoryDemo,  //good
 ] as const
 
 export const demosByCategory = {
-  manufacturing: [
-    manufacturingCardRfqDemo,
-    manufacturingMotionProcessDemo,
-    manufacturingDepthCertificationsDemo,
-    manufacturingImmersiveFactoryDemo,
-  ],
   services: [
     servicesCardBookingDemo,
     servicesMotionTransformationDemo,
     servicesDepthConsultingDemo,
     servicesImmersiveBrandDemo,
   ],
-  ecommerce: [
-    ecommerceCardCollectionDemo,
-    ecommerceMotionLaunchDemo,
-    ecommerceDepthSignatureDemo,
-    ecommerceImmersiveSeasonalDemo,
-  ],
   study: [
     studyCardEnrollmentDemo,
     studyMotionCohortDemo,
     studyDepthInstructorDemo,
     studyImmersiveAdmissionsDemo,
+  ],
+  manufacturing: [
+    manufacturingCardRfqDemo,
+    manufacturingMotionProcessDemo,
+    manufacturingDepthCertificationsDemo,
+    manufacturingImmersiveFactoryDemo,
+  ],
+  ecommerce: [
+    ecommerceCardCollectionDemo,
+    ecommerceMotionLaunchDemo,
+    ecommerceDepthSignatureDemo,
+    ecommerceImmersiveSeasonalDemo,
   ],
 } as const
 

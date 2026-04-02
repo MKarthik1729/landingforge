@@ -16,7 +16,7 @@ export const studyCardEnrollmentDemo = defineDemo({
     description:
       'This layout is designed for course platforms, coaching programs, and tutoring offers that need organized program selection before the form fill.',
     image:
-      '/images/landings/study-card-enrollment-hero.jpg',
+      '/images/study/card-enrollment/instructor-1.jpg',
     imageAlt: 'Students reviewing program options together',
   },
   heroChips: ['Program cards', 'Enrollment clarity', 'Study offer comparison'],

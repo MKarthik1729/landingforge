@@ -16,7 +16,7 @@ export const manufacturingMotionProcessDemo = defineDemo({
     description:
       'This concept leans on motion, sequential reveals, and animated process blocks to make manufacturing feel understandable, polished, and dependable.',
     image:
-      '/images/landings/manufacturing-motion-process-hero.jpg',
+      '/images/manufacturing/motion-process/hero.jpg',
     imageAlt: 'Manufacturing line with workers and equipment in motion',
   },
   heroChips: ['Process narrative', 'Animated proof', 'Operations transparency'],
