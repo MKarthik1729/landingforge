@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { ReliableImage } from '../../components/media/ReliableImage'
 import { useNavigate } from 'react-router-dom'
+import { FaArrowRight, FaPalette, FaUserCheck, FaChartLine, FaEnvelope, FaPhoneAlt, FaLinkedin } from 'react-icons/fa'
 
 export function HomePage() {
   const navigate = useNavigate()
@@ -26,18 +27,18 @@ export function HomePage() {
   useEffect(() => {
     const categories = Object.keys(demosByCategory) as (keyof typeof demosByCategory)[];
     const intervals = categories.map((category, index) => {
-        return setInterval(() => {
-            setCurrentIndices((prev) => ({
-                ...prev,
-                [category]: (prev[category] + 1) % demosByCategory[category].length,
-            }));
-        }, 5000 + index * 1250);
+      return setInterval(() => {
+        setCurrentIndices((prev) => ({
+          ...prev,
+          [category]: (prev[category] + 1) % demosByCategory[category].length,
+        }));
+      }, 5000 + index * 1250);
     });
 
     return () => {
-        intervals.forEach(clearInterval);
+      intervals.forEach(clearInterval);
     };
-}, []);
+  }, []);
 
   return (
     <SiteLayout
@@ -82,10 +83,10 @@ export function HomePage() {
                 <a href="#contact" className="bg-teal-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-teal-600 transition-colors">
                   Get in Touch
                 </a>
-                <a href="#benefits" className="font-bold py-3 px-6 rounded-lg shadow-lg transition-colors" style={{ backgroundColor: 'var(--page-surface)', color: 'var(--page-accent)'}}>
+                <a href="#benefits" className="font-bold py-3 px-6 rounded-lg shadow-lg transition-colors" style={{ backgroundColor: 'var(--page-surface)', color: 'var(--page-accent)' }}>
                   Learn More
                 </a>
-                <a href="/services/card-booking" className="font-bold py-3 px-6 rounded-lg shadow-lg transition-colors" style={{ backgroundColor: 'var(--page-surface)', color: '#73af73'}}>
+                <a href="/services/motion-transformation" className="font-bold py-3 px-6 rounded-lg shadow-lg transition-colors" style={{ backgroundColor: 'var(--page-surface)', color: '#73af73' }}>
                   Browse Demos
                 </a>
               </div>
@@ -93,30 +94,30 @@ export function HomePage() {
 
             {/* Right Side: Isometric Screen Mockups */}
             <div className="relative h-96 flex items-center justify-center">
-                <div className="absolute w-64 h-40 rounded-lg shadow-2xl transform -rotate-6 translate-x-10 translate-y-10" style={{ backgroundColor: 'var(--page-surface)', transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg)' }}>
-                    <div className="h-4 rounded-t-lg" style={{ backgroundColor: 'var(--page-surface-strong)' }}></div>
-                    <p className="p-4">Blog</p>
-                </div>
-                <div className="absolute w-80 h-48 rounded-lg shadow-2xl transform rotate-3 -translate-x-4" style={{ backgroundColor: 'var(--page-surface)', transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg) scale(1.1)' }}>
-                    <div className="h-5 rounded-t-lg" style={{ backgroundColor: 'var(--page-surface-strong)' }}></div>
-                    <p className="p-4">Agency Portfolio</p>
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-green-400 opacity-20 rounded-lg"></div>
-                </div>
-                <div className="absolute w-72 h-44 rounded-lg shadow-2xl transform rotate-6 -translate-x-10 -translate-y-10" style={{ backgroundColor: 'var(--page-surface)', transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg)' }}>
-                     <div className="h-4 rounded-t-lg" style={{ backgroundColor: 'var(--page-surface-strong)' }}></div>
-                    <p className="p-4">Corporate</p>
-                </div>
-                <div className="absolute bottom-0 right-20"
-                onClick={() => navigate('/services/card-booking')}
+              <div className="absolute w-64 h-40 rounded-lg shadow-2xl transform -rotate-6 translate-x-10 translate-y-10" style={{ backgroundColor: 'var(--page-surface)', transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg)' }}>
+                <div className="h-4 rounded-t-lg" style={{ backgroundColor: 'var(--page-surface-strong)' }}></div>
+                <p className="p-4">Blog</p>
+              </div>
+              <div className="absolute w-80 h-48 rounded-lg shadow-2xl transform rotate-3 -translate-x-4" style={{ backgroundColor: 'var(--page-surface)', transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg) scale(1.1)' }}>
+                <div className="h-5 rounded-t-lg" style={{ backgroundColor: 'var(--page-surface-strong)' }}></div>
+                <p className="p-4">Agency Portfolio</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-green-400 opacity-20 rounded-lg"></div>
+              </div>
+              <div className="absolute w-72 h-44 rounded-lg shadow-2xl transform rotate-6 -translate-x-10 -translate-y-10" style={{ backgroundColor: 'var(--page-surface)', transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg)' }}>
+                <div className="h-4 rounded-t-lg" style={{ backgroundColor: 'var(--page-surface-strong)' }}></div>
+                <p className="p-4">Corporate</p>
+              </div>
+              <div className="absolute bottom-0 right-20"
+                onClick={() => navigate('/services/motion-transformation')}
                 style={{ color: 'var(--page-text-muted)' }}>
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </div>
+                <FaArrowRight className="w-8 h-8 cursor-pointer hover:text-teal-500 transition-colors" />
+              </div>
             </div>
           </div>
         </section>
 
         {/* Demos Section */}
-        <section id="demos" className="py-20" style={{ backgroundColor: 'var(--page-bg-alt)'}}>
+        <section id="demos" className="py-20" style={{ backgroundColor: 'var(--page-bg-alt)' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold">Demo sites</h2>
@@ -145,7 +146,7 @@ export function HomePage() {
         </section>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-20" style={{ backgroundColor: 'var(--page-bg)'}}>
+        <section id="benefits" className="py-20" style={{ backgroundColor: 'var(--page-bg)' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold">Why Choose Us?</h2>
@@ -154,24 +155,21 @@ export function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="p-8 rounded-lg text-center shadow-lg" style={{ backgroundColor: 'var(--page-surface)' }}>
                 <div className="flex items-center justify-center h-16 w-16 bg-teal-500 text-white rounded-full mx-auto mb-4">
-                  {/* Icon Placeholder */}
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  <FaPalette className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-bold">Stunning Visuals</h3>
                 <p className="mt-2" style={{ color: 'var(--page-text-muted)' }}>Eye-catching designs that leave a lasting impression.</p>
               </div>
               <div className="p-8 rounded-lg text-center shadow-lg" style={{ backgroundColor: 'var(--page-surface)' }}>
                 <div className="flex items-center justify-center h-16 w-16 bg-teal-500 text-white rounded-full mx-auto mb-4">
-                  {/* Icon Placeholder */}
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01" /></svg>
+                  <FaUserCheck className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-bold">User-Centric</h3>
                 <p className="mt-2" style={{ color: 'var(--page-text-muted)' }}>Intuitive interfaces that are a joy to use.</p>
               </div>
               <div className="p-8 rounded-lg text-center shadow-lg" style={{ backgroundColor: 'var(--page-surface)' }}>
                 <div className="flex items-center justify-center h-16 w-16 bg-teal-500 text-white rounded-full mx-auto mb-4">
-                  {/* Icon Placeholder */}
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <FaChartLine className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-bold">Conversion-Focused</h3>
                 <p className="mt-2" style={{ color: 'var(--page-text-muted)' }}>Designs that are optimized to drive your business goals.</p>
@@ -210,28 +208,52 @@ export function HomePage() {
             </form>
           </div>
         </section> */}
-<section id="contact" className="py-20" style={{ backgroundColor: 'var(--page-bg-alt)' }}>
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12">
-      <h2 className="text-4xl font-bold">Let's Create Something Amazing</h2>
-      <p className="mt-2 text-lg" style={{ color: 'var(--page-text-muted)' }}>
-        For website creation and project inquiries, feel free to reach out through the details below.
-      </p>
-    </div>
-
-    <div className="p-8 rounded-lg shadow-lg text-center" style={{ backgroundColor: 'var(--page-surface)' }}>
-      <p className="text-lg mb-4">
-        📧 Email: <a href="mailto:mkarthik1729@gmail.com" className="text-teal-500 font-semibold">mkarthik1729@gmail.com</a>
-      </p>
-      <p className="text-lg mb-4">
-        📞 Phone: <a href="tel:+917671859776" className="text-teal-500 font-semibold">+91 76718 59776</a>
-      </p>
-      <p className="mt-6 text-md" style={{ color: 'var(--page-text-muted)' }}>
-        I typically respond within 24 hours. Looking forward to working with you!
-      </p>
-    </div>
-  </div>
-</section>
+        <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg-alt)' }}>
+          <div className="max-w-6xl mx-auto">
+            <div className="rounded-3xl shadow-xl overflow-hidden" style={{ backgroundColor: 'var(--page-surface)' }}>
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                {/* Left Half - About / Intro */}
+                <div className="p-10 md:p-16 flex flex-col justify-center">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Create Something Amazing</h2>
+                  <p className="text-lg leading-relaxed" style={{ color: 'var(--page-text-muted)' }}>
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. 
+                    Whether you need a modern landing page or a full-scale web application, let's build it together.
+                  </p>
+                </div>
+                
+                {/* Right Half - Contact Info */}
+                <div className="p-10 md:p-16 flex flex-col justify-center" style={{ backgroundColor: 'var(--page-bg)' }}>
+                  <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
+                  <div className="space-y-8">
+                    <a href="mailto:mkarthik1729@gmail.com" className="flex items-center group">
+                      <FaEnvelope className="text-4xl mr-6 text-teal-500 group-hover:scale-110 transition-transform" />
+                      <div>
+                        <p className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--page-text-muted)' }}>Email</p>
+                        <p className="text-xl font-medium group-hover:text-teal-500 transition-colors">mkarthik1729@gmail.com</p>
+                      </div>
+                    </a>
+                    
+                    <a href="tel:+917671859776" className="flex items-center group">
+                      <FaPhoneAlt className="text-4xl mr-6 text-teal-500 group-hover:scale-110 transition-transform" />
+                      <div>
+                        <p className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--page-text-muted)' }}>Phone</p>
+                        <p className="text-xl font-medium group-hover:text-teal-500 transition-colors">+91 76718 59776</p>
+                      </div>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer" className="flex items-center group">
+                      <FaLinkedin className="text-4xl mr-6 text-teal-500 group-hover:scale-110 transition-transform" />
+                      <div>
+                        <p className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--page-text-muted)' }}>LinkedIn</p>
+                        <p className="text-xl font-medium group-hover:text-teal-500 transition-colors">Connect with me</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Footer */}
         <footer style={{ backgroundColor: 'var(--page-bg)' }}>
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">

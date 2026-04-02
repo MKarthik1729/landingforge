@@ -16,14 +16,14 @@ import { studyImmersiveAdmissionsDemo } from './study/immersive-admissions'
 import { studyMotionCohortDemo } from './study/motion-cohort'
 
 export const allDemos = [
-  servicesCardBookingDemo,
   servicesMotionTransformationDemo,  
   servicesDepthConsultingDemo,  
+  servicesImmersiveBrandDemo, //good
   studyCardEnrollmentDemo,
   studyMotionCohortDemo,
   studyDepthInstructorDemo,
   studyImmersiveAdmissionsDemo,
-  servicesImmersiveBrandDemo, //good
+  servicesCardBookingDemo,
   ecommerceCardCollectionDemo,
   ecommerceMotionLaunchDemo, 
   ecommerceDepthSignatureDemo, // okok
@@ -35,17 +35,17 @@ export const allDemos = [
 ] as const
 
 export const demosByCategory = {
-  services: [
-    servicesCardBookingDemo,
-    servicesMotionTransformationDemo,
-    servicesDepthConsultingDemo,
-    servicesImmersiveBrandDemo,
-  ],
   study: [
     studyCardEnrollmentDemo,
     studyMotionCohortDemo,
     studyDepthInstructorDemo,
     studyImmersiveAdmissionsDemo,
+  ],
+  services: [
+    servicesMotionTransformationDemo,
+    servicesDepthConsultingDemo,
+    servicesCardBookingDemo,
+    servicesImmersiveBrandDemo,
   ],
   manufacturing: [
     manufacturingCardRfqDemo,
