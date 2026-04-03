@@ -214,7 +214,7 @@ export function HomePage() {
                       </div>
                     </a>
                     
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer" className="flex items-center group">
+                    <a href="https://www.linkedin.com/in/m-karthik1729/" target="_blank" rel="noreferrer" className="flex items-center group">
                       <FaLinkedin className="text-4xl mr-6 text-teal-500 group-hover:scale-110 transition-transform" />
                       <div>
                         <p className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--page-text-muted)' }}>LinkedIn</p>
