@@ -1,3 +1,4 @@
+import { FaMoon, FaSun } from 'react-icons/fa'
 import { useUiStore } from '../../stores/useUiStore'
 
 export function ThemeToggle() {
@@ -17,7 +18,8 @@ export function ThemeToggle() {
       }}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
-      {theme === 'light' ? 'Dark mode' : 'Light mode'}
+      {theme === 'light' ? <FaMoon className="text-[20px] text-teal-400" /> : <FaSun className="text-[20px] text-teal-500" />}
+
     </button>
   )
 }
