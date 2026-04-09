@@ -232,24 +232,24 @@ export function WelcomePopup() {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl max-w-4xl w-full p-8 md:p-12 relative border border-slate-200 dark:border-slate-800 overflow-y-auto max-h-[95vh] animate-in zoom-in-95 duration-500">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl max-w-4xl w-full p-6 md:p-12 relative border border-slate-200 dark:border-slate-800 overflow-y-auto max-h-[95vh] animate-in zoom-in-95 duration-500">
         <button 
           onClick={() => setIsOpen(false)}
-          className="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 z-10" 
+          className="absolute top-4 right-4 md:top-6 md:right-6 p-2 text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 z-10" 
           onClickCapture={() => {
             localStorage.setItem('welcomePopupShown', 'true');
           }}
         >
-          <FaTimes className="text-2xl" />
+          <FaTimes className="text-xl md:text-2xl" />
         </button>
 
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-center text-slate-900 dark:text-white tracking-tight">
+        <h2 className="hidden md:block text-3xl md:text-4xl font-extrabold mb-10 text-center text-slate-900 dark:text-white tracking-tight">
           Welcome to the Experience
         </h2>
 
-        <div className="flex flex-col md:flex-row gap-10 items-center justify-center min-h-[300px]">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center justify-center md:min-h-[300px]">
           {/* Text Content */}
-          <div className="flex-1 space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="hidden md:flex flex-1 space-y-6 flex-col items-center md:items-start text-center md:text-left">
             {StepContent.icon}
             <h3 className="text-3xl font-bold text-slate-900 dark:text-white">
               {StepContent.title}
