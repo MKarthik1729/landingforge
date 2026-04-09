@@ -1,9 +1,9 @@
-import { MotionDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { ecommerceMotionLaunchDemo } from '../../../config/landings/ecommerce/motion-launch'
 
 export function EcommerceMotionLaunchNavbar() {
   return (
-    <MotionDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={ecommerceMotionLaunchDemo.id}
       title="Launch motion"
       subtitle="Drop campaign"

@@ -1,9 +1,9 @@
-import { SectionsDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { manufacturingDepthCertificationsDemo } from '../../../config/landings/manufacturing/depth-certifications'
 
 export function ManufacturingDepthCertificationsNavbar() {
   return (
-    <SectionsDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={manufacturingDepthCertificationsDemo.id}
       title="Sections flow"
       subtitle="Compliance focus"

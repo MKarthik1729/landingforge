@@ -1,9 +1,9 @@
-import { SectionsDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { servicesDepthConsultingDemo } from '../../../config/landings/services/depth-consulting'
 
 export function ServicesDepthConsultingNavbar() {
   return (
-    <SectionsDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={servicesDepthConsultingDemo.id}
       title="Sections consulting"
       subtitle="Premium offer"

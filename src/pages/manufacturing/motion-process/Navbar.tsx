@@ -1,9 +1,9 @@
-import { MotionDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { manufacturingMotionProcessDemo } from '../../../config/landings/manufacturing/motion-process'
 
 export function ManufacturingMotionProcessNavbar() {
   return (
-    <MotionDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={manufacturingMotionProcessDemo.id}
       title="Process motion"
       subtitle="Factory story"

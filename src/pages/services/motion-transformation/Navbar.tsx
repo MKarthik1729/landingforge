@@ -1,9 +1,9 @@
-import { MotionDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { servicesMotionTransformationDemo } from '../../../config/landings/services/motion-transformation'
 
 export function ServicesMotionTransformationNavbar() {
   return (
-    <MotionDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={servicesMotionTransformationDemo.id}
       title="Transformation motion"
       subtitle="Story-first"

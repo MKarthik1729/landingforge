@@ -1,9 +1,9 @@
-import { SectionsDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { studyDepthInstructorDemo } from '../../../config/landings/study/depth-instructor'
 
 export function StudyDepthInstructorNavbar() {
   return (
-    <SectionsDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={studyDepthInstructorDemo.id}
       title="Sections authority"
       subtitle="Instructor trust"

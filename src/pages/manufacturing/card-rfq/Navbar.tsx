@@ -1,9 +1,9 @@
-import { CardDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { manufacturingCardRfqDemo } from '../../../config/landings/manufacturing/card-rfq'
 
 export function ManufacturingCardRfqNavbar() {
   return (
-    <CardDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={manufacturingCardRfqDemo.id}
       title="RFQ cards"
       subtitle="Procurement-ready"

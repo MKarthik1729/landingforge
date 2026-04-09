@@ -200,15 +200,21 @@ export function Navbar({
                   ? 'var(--page-glow)'
                   : 'var(--page-surface)',
               }}
-              aria-label="Toggle menu"
+              aria-label="Toggle primary navigation"
+              aria-expanded={mobileNavOpen}
+              aria-controls="mobile-navbar"
             >
               <span className="space-y-1.5">
                 <span
-                  className="block h-0.5 w-5 rounded-full"
+                  className="block h-0.5 w-5 rounded-full transition-colors"
                   style={{ backgroundColor: 'var(--page-text)' }}
                 />
                 <span
-                  className="block h-0.5 w-5 rounded-full"
+                  className="block h-0.5 w-5 rounded-full transition-colors"
+                  style={{ backgroundColor: 'var(--page-text)' }}
+                />
+                <span
+                  className="block h-0.5 w-5 rounded-full transition-colors"
                   style={{ backgroundColor: 'var(--page-text)' }}
                 />
               </span>
@@ -217,41 +223,48 @@ export function Navbar({
         </div>
 
         {mobileNavOpen ? (
-          <div
+          <nav
+            id="mobile-navbar"
+            aria-label="Primary mobile navigation"
             className="border-t px-5 pb-5 pt-4 lg:hidden"
             style={{ borderColor: 'var(--page-border)' }}
           >
             <div className="grid gap-2">
               {navItems.map((item) => (
-                 <div key={item.label}>
-                 <a
-                   href={item.href}
-                   className="rounded-2xl border px-4 py-3 text-sm font-medium"
-                   style={{
-                     borderColor: 'var(--page-border)',
-                     backgroundColor: 'var(--page-surface)',
-                   }}
-                 >
-                   {item.label}
-                 </a>
-                 {item.match in demosByCategory && (
-                   <div className="mt-2 w-full rounded-md shadow-lg" style={{ backgroundColor: 'var(--page-surface)' }}>
-                     {demosByCategory[item.match as keyof typeof demosByCategory].map((demo) => (
-                       <Link
-                         key={demo.id}
-                         to={getDemoPath(demo)}
-                         className="block px-4 py-2 text-sm"
-                         style={{ color: 'var(--page-text)' }}
-                       >
-                         {demo.title}
-                       </Link>
-                     ))}
-                   </div>
-                 )}
-               </div>
+                <div key={item.label}>
+                  <a
+                    href={item.href}
+                    className="rounded-2xl border px-4 py-3 text-sm font-medium"
+                    style={{
+                      borderColor: 'var(--page-border)',
+                      backgroundColor: 'var(--page-surface)',
+                    }}
+                    onClick={() => setMobileNavOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                  {item.match in demosByCategory && (
+                    <div
+                      className="mt-2 w-full rounded-md shadow-lg"
+                      style={{ backgroundColor: 'var(--page-surface)' }}
+                    >
+                      {demosByCategory[item.match as keyof typeof demosByCategory].map((demo) => (
+                        <Link
+                          key={demo.id}
+                          to={getDemoPath(demo)}
+                          className="block px-4 py-2 text-sm"
+                          style={{ color: 'var(--page-text)' }}
+                          onClick={() => setMobileNavOpen(false)}
+                        >
+                          {demo.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
-          </div>
+          </nav>
         ) : null}
       </div>
     </header>

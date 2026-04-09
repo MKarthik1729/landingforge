@@ -1,9 +1,9 @@
-import { CardDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { ecommerceCardCollectionDemo } from '../../../config/landings/ecommerce/card-collection'
 
 export function EcommerceCardCollectionNavbar() {
   return (
-    <CardDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={ecommerceCardCollectionDemo.id}
       title="Collection cards"
       subtitle="Curated shopping"

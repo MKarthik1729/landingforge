@@ -1,9 +1,9 @@
-import { MotionDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { studyMotionCohortDemo } from '../../../config/landings/study/motion-cohort'
 
 export function StudyMotionCohortNavbar() {
   return (
-    <MotionDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={studyMotionCohortDemo.id}
       title="Cohort motion"
       subtitle="Learning journey"

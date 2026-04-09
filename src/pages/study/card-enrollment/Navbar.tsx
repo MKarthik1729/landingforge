@@ -1,9 +1,9 @@
-import { CardDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { studyCardEnrollmentDemo } from '../../../config/landings/study/card-enrollment'
 
 export function StudyCardEnrollmentNavbar() {
   return (
-    <CardDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={studyCardEnrollmentDemo.id}
       title="Enrollment cards"
       subtitle="Program selection"

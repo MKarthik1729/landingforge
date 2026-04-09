@@ -1,9 +1,9 @@
-import { SectionsDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
+import { InteractiveDemoNavbar } from '../../../components/layout/DemoNavbarVariants'
 import { ecommerceDepthSignatureDemo } from '../../../config/landings/ecommerce/depth-signature'
 
 export function EcommerceDepthSignatureNavbar() {
   return (
-    <SectionsDemoNavbar
+    <InteractiveDemoNavbar
       currentDemoId={ecommerceDepthSignatureDemo.id}
       title="Sections product"
       subtitle="Flagship SKU"
